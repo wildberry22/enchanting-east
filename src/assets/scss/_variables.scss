@@ -1,0 +1,32 @@
+:root {
+  /*========== Font family ==========*/
+  --source-sans-pro-font: 'Source Sans Pro', sans-serif;
+  --playfair-display-font: 'Playfair Display', serif;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-bold: 700;
+  --font-black: 900;
+
+  /*========== Font size ==========*/
+  --fz-main-title: 45px;
+  --fz-title: 36px; 
+  --fz-subtitle-btn: 22px;
+  --fz-main-text: 16px;
+  --fz-small-text: 14px;
+  --fz-1: 32px;
+  --fz-2: 26px;
+  --fz-3: 24px;
+  --fz-4: 20px;
+
+  /*========== Colors ==========*/
+  --main-color: #0061BF;
+  --light-color: #F4F4F4;
+  --dark-color: #353535;
+  --yellow-color: #FFC614;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
