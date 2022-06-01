@@ -90,10 +90,66 @@
 /*!*******************************!*\
   !*** ./src/assets/js/main.js ***!
   \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-new WOW().init();
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/animateWithScroll.js */ "./src/assets/js/modules/animateWithScroll.js");
+ // scroll animations for animate.css
+
+new WOW().init(); // scroll animations for elements with ".js-scroll"
+
+Object(_modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+
+/***/ }),
+
+/***/ "./src/assets/js/modules/animateWithScroll.js":
+/*!****************************************************!*\
+  !*** ./src/assets/js/modules/animateWithScroll.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return animateWithScroll; });
+function animateWithScroll() {
+  const scrollElements = document.querySelectorAll(".js-scroll");
+
+  const elementInView = function (el) {
+    let dividend = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+    const elementTop = el.getBoundingClientRect().top;
+    return elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
+  };
+
+  const elementOutofView = el => {
+    const elementTop = el.getBoundingClientRect().top;
+    return elementTop > (window.innerHeight || document.documentElement.clientHeight);
+  };
+
+  const displayScrollElement = element => {
+    element.classList.add("scrolled");
+  };
+
+  const hideScrollElement = element => {
+    element.classList.remove("scrolled");
+  };
+
+  const handleScrollAnimation = () => {
+    scrollElements.forEach(el => {
+      if (elementInView(el, 1.25)) {
+        displayScrollElement(el);
+      } else if (elementOutofView(el)) {
+        hideScrollElement(el);
+      }
+    });
+  };
+
+  window.addEventListener("scroll", () => {
+    handleScrollAnimation();
+  });
+}
 
 /***/ })
 
