@@ -96,11 +96,19 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/animateWithScroll.js */ "./src/assets/js/modules/animateWithScroll.js");
+/* harmony import */ var _modules_tabs_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/tabs.js */ "./src/assets/js/modules/tabs.js");
+/* harmony import */ var _modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/gallery.js */ "./src/assets/js/modules/gallery.js");
+
+
  // scroll animations for animate.css
 
 new WOW().init(); // scroll animations for elements with ".js-scroll"
 
-Object(_modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+Object(_modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])(); // tabs
+
+Object(_modules_tabs_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.route-info__title-item', '.route-info__content-item'); // route gallery 
+
+Object(_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.route-info__item-photo img');
 
 /***/ }),
 
@@ -149,6 +157,84 @@ function animateWithScroll() {
   window.addEventListener("scroll", () => {
     handleScrollAnimation();
   });
+}
+
+/***/ }),
+
+/***/ "./src/assets/js/modules/gallery.js":
+/*!******************************************!*\
+  !*** ./src/assets/js/modules/gallery.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return gallery; });
+function gallery(itemSelector) {
+  const overlay = document.querySelector('.overlay');
+  const items = document.querySelectorAll(itemSelector);
+  const imgEl = document.createElement('img');
+  imgEl.classList.add('gallery-img');
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      imgEl.src = item.getAttribute('src');
+      imgEl.alt = item.getAttribute('alt');
+      activateOverlay();
+    });
+  });
+
+  function activateOverlay() {
+    overlay.classList.add('active');
+    document.body.style.overflowY = 'hidden';
+    overlay.append(imgEl);
+    overlay.addEventListener('click', e => {
+      if (e.target != imgEl) {
+        console.log(imgEl);
+        console.log(e.target);
+        overlay.classList.remove('active');
+        document.body.style.overflowY = 'visible';
+        imgEl.remove();
+        overlay.innerHTML = '';
+      }
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./src/assets/js/modules/tabs.js":
+/*!***************************************!*\
+  !*** ./src/assets/js/modules/tabs.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return tabs; });
+function tabs(titleSelector, contentSelector) {
+  const titles = document.querySelectorAll(titleSelector);
+  const contents = document.querySelectorAll(contentSelector);
+  const activeClass = 'active';
+  removeActiveClass();
+  addActiveClass(0);
+  titles.forEach((title, idx) => {
+    title.addEventListener('click', () => {
+      removeActiveClass();
+      addActiveClass(idx);
+    });
+  });
+
+  function addActiveClass(idx) {
+    titles[idx].classList.add(activeClass);
+    contents[idx].classList.add(activeClass);
+  }
+
+  function removeActiveClass() {
+    titles.forEach(title => title.classList.remove(activeClass));
+    contents.forEach(content => content.classList.remove(activeClass));
+  }
 }
 
 /***/ })

@@ -3352,6 +3352,30 @@ input, select {
       .btn-blacktext:active span {
         border-image-source: linear-gradient(to right, var(--yellow-color), var(--yellow-color)); }
 
+@keyframes toRight {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%); }
+  to {
+    clip-path: polygon(101% 0, 0 0, 0 100%, 101% 100%); } }
+
+@keyframes toLeft {
+  from {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+  to {
+    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%); } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5); }
+  to {
+    transform: scale(1); } }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -3410,6 +3434,30 @@ body {
   color: var(--dark-color);
   padding-left: 44px;
   text-transform: uppercase; }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 15;
+  transition: 0.5s ease; }
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all; }
+
+.gallery-img {
+  max-width: 1000px;
+  animation: zoomIn 0.5s forwards;
+  z-index: 20; }
 
 .header {
   height: 100vh;
@@ -3613,25 +3661,25 @@ body {
         background-color: #fff;
         border: 1px solid #14405a; }
     .route-map.scrolled .dot-1 {
-      animation: dotsFadeIn 1s forwards; }
+      animation: fadeIn 1s forwards; }
       .route-map.scrolled .dot-1::after {
-        animation: arrowToLeft 1.5s forwards 1s ease; }
+        animation: toLeft 1.5s forwards 1s ease; }
     .route-map.scrolled .dot-2 {
-      animation: dotsFadeIn 1s forwards 2.5s; }
+      animation: fadeIn 1s forwards 2.5s; }
       .route-map.scrolled .dot-2::after {
-        animation: arrowToLeft 2s forwards 3.5s ease; }
+        animation: toLeft 2s forwards 3.5s ease; }
     .route-map.scrolled .dot-3 {
-      animation: dotsFadeIn 1s forwards 5.5s; }
+      animation: fadeIn 1s forwards 5.5s; }
       .route-map.scrolled .dot-3::after {
-        animation: arrowToRight 3s forwards 6.5s ease; }
+        animation: toRight 3s forwards 6.5s ease; }
     .route-map.scrolled .dot-4 {
-      animation: dotsFadeIn 1s forwards 8.5s; }
+      animation: fadeIn 1s forwards 8.5s; }
       .route-map.scrolled .dot-4::after {
-        animation: arrowToLeft 4s forwards 9.5s ease; }
+        animation: toLeft 4s forwards 9.5s ease; }
     .route-map.scrolled .dot-5 {
-      animation: dotsFadeIn 1s forwards 13s; }
+      animation: fadeIn 1s forwards 13s; }
       .route-map.scrolled .dot-5::after {
-        animation: arrowToRight 2s forwards 14s ease; }
+        animation: toRight 2s forwards 14s ease; }
     .route-map .dot-1 {
       font-size: var(--fz-main-text);
       top: 110px;
@@ -3780,14 +3828,88 @@ body {
           background: url(../img/route-section/circle.png) center center/cover no-repeat; }
   .route-info {
     border: 1px solid var(--main-color);
-    height: 600px; }
+    height: 600px;
+    margin-bottom: 50px; }
     .route-info__wrapper {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       height: 100%; }
-    .route-info__item-photo img {
-      width: 260px; }
+    .route-info__content-wrapper {
+      height: 100%;
+      position: relative; }
+    .route-info__content-item {
+      height: 100%;
+      display: none;
+      clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+      transition: all .5s; }
+      .route-info__content-item.active {
+        display: block;
+        animation: toRight 1s forwards 0.1s ease; }
+    .route-info__item-inner {
+      display: flex;
+      height: 100%; }
+    .route-info__item-descr {
+      padding: 15px 40px 30px 50px;
+      color: var(--dark-color);
+      font-weight: var(--font-regular);
+      overflow-y: auto; }
+      .route-info__item-descr::-webkit-scrollbar {
+        width: 4px;
+        height: 4px; }
+      .route-info__item-descr::-webkit-scrollbar-thumb {
+        background: transparent;
+        border: 3px solid var(--white);
+        border-radius: 20px; }
+      .route-info__item-descr::-webkit-scrollbar-thumb {
+        background: #a3b4ff; }
+      .route-info__item-descr::-webkit-scrollbar-thumb:hover {
+        background: #8a9fff; }
+    .route-info__item-title {
+      font-weight: var(--font-regular);
+      font-size: var(--fz-3);
+      line-height: 30px;
+      margin-bottom: 10px;
+      text-transform: uppercase; }
+    .route-info__item-date {
+      margin-bottom: 5px; }
+    .route-info__item-departure {
+      margin-bottom: 20px; }
+    .route-info__item-text {
+      margin-bottom: 60px; }
+      .route-info__item-text p {
+        margin-bottom: 25px; }
+    .route-info__item-details {
+      display: flex;
+      justify-content: space-between; }
+    .route-info__item-extra {
+      max-width: 290px; }
+    .route-info__item-photos {
+      margin-left: 2px;
+      margin-right: -6px; }
+      .route-info__item-photos .w {
+        overflow-y: auto;
+        width: 266px;
+        height: 101%; }
+        .route-info__item-photos .w::-webkit-scrollbar {
+          width: 6px;
+          height: 6px; }
+        .route-info__item-photos .w::-webkit-scrollbar-thumb {
+          background: transparent;
+          border: 1px solid #fff;
+          border-radius: 20px; }
+        .route-info__item-photos .w::-webkit-scrollbar-thumb {
+          background: #a3b4ff; }
+        .route-info__item-photos .w::-webkit-scrollbar-thumb:hover {
+          background: #8a9fff; }
+    .route-info__item-photo {
+      width: 260px;
+      height: 199px;
+      cursor: pointer; }
+      .route-info__item-photo img {
+        width: 260px;
+        height: 199px;
+        object-fit: cover; }
     .route-info__title-list {
       height: 100%;
       width: 250px;
@@ -3797,38 +3919,44 @@ body {
       border-right: 1px solid var(--main-color); }
     .route-info__title-item {
       width: 250px;
-      padding: 0 20px; }
+      padding: 0 20px;
+      transition: all .3s;
+      cursor: pointer; }
       .route-info__title-item.active {
-        background: var(--main-color); }
-        .route-info__title-item.active .route-info__title-link {
+        background: var(--main-color);
+        cursor: initial; }
+        .route-info__title-item.active .route-info__title-itemwrap {
           color: var(--light-color); }
-    .route-info__title-link {
+          .route-info__title-item.active .route-info__title-itemwrap::after {
+            background: url(../img/route-section/arrow-white.svg) center center/cover no-repeat;
+            right: -8px; }
+    .route-info__title-itemwrap {
+      position: relative;
       display: block;
       width: 100%;
       display: flex;
       padding: 19px 0;
       border-bottom: 1px solid var(--main-color);
       color: var(--dark-color); }
-      .route-info__title-link.last {
+      .route-info__title-itemwrap.last {
         border-bottom: none; }
+      .route-info__title-itemwrap::after {
+        content: '';
+        width: 29px;
+        height: 9px;
+        background: url(../img/route-section/arrow-blue.svg) center center/cover no-repeat;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        transition: all .3s; }
+      .route-info__title-itemwrap:hover::after {
+        right: -8px; }
     .route-info__title-day {
       font-weight: var(--font-bold);
-      font-size: var(--fz-main-text); }
-
-@keyframes arrowToRight {
-  from {
-    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%); }
-  to {
-    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%); } }
-
-@keyframes arrowToLeft {
-  from {
-    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
-  to {
-    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%); } }
-
-@keyframes dotsFadeIn {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
+      font-size: var(--fz-main-text);
+      padding-right: 15px; }
+    .route-info__title-name {
+      max-width: 120px;
+      font-weight: var(--font-regular);
+      font-size: var(--fz-small-text); }

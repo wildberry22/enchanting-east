@@ -1,0 +1,41 @@
+
+@keyframes toRight {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+
+  to {
+    clip-path: polygon(101% 0, 0 0, 0 100%, 101% 100%);
+  }
+}
+
+@keyframes toLeft {
+  from {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+
+  to {
+    clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5)
+  }
+
+  to {
+    transform: scale(1)
+  }
+}
+
