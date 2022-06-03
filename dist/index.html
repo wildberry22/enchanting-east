@@ -110,11 +110,11 @@
     <!-- ========== Section Route ========== -->
     <section class="route" id="route">
       <div class="container">
-        <div class="title route__title">маршрут</div>
-        <div class="subtitle route__subtitle">вас ждет 5 городов в маршруте</div>
+        <div class="title route__title animate__animated animate__fadeInLeft wow">маршрут</div>
+        <div class="subtitle route__subtitle animate__animated animate__fadeInLeft wow">вас ждет 5 городов в маршруте</div>
 
         <div class="route-map__wrapper">
-          <div class="route-map js-scroll">
+          <div class="route-map js-scroll animate__animated animate__fadeIn animate__delay-1s wow">
             <div class="route-map__dot dot-1">Dubai</div>
             <div class="route-map__dot dot-2">Abu Dhabi</div>
             <div class="route-map__dot dot-3">Doha</div>
@@ -122,7 +122,7 @@
             <div class="route-map__dot dot-5">Khalifa Bin Salman</div>
           </div>
 
-          <div class="route-map__descr">
+          <div class="route-map__descr  animate__animated animate__fadeIn animate__delay-1s wow">
             <div class="route-map__descr-names">ДУБАЙ / АБУ-ДАБИ / о. СИР-БАНИ-ЯС / ДАМАМ / ДОХА</div>
             <ul class="route-map__descr-list">
               <li class="route-map__descr-item item-1"><span>2 дня в Дубаи.</span></li>
@@ -132,7 +132,7 @@
           </div>
         </div>
 
-        <div class="route-info">
+        <div class="route-info animate__animated animate__fadeIn animate__delay-1s wow">
           <div class="route-info__wrapper">
 
             <ul class="route-info__title-list">
@@ -528,15 +528,17 @@
           </div>
         </div>
 
-        <div class="route-download">
+        <div class="route-download animate__animated animate__fadeIn animate__delay-1s wow">
           <div class="route-download__text">
             Получите всю програму в формате PDF.
             <span>*Для скачивания введите Ваш номер телефона.</span>
           </div>
-          <form action="#">
-            <input class="route-download__input" type="number" required placeholder="Введите Ваш номер телефона">
+          <form class="route-download__form" action="#">
+            <input class="route-download__input" type="text" required placeholder="Введите Ваш номер телефона">
+            <button class="btn btn-blue route-download__btn" type="submit" disabled>
+              <span>Скачать PDF</span> 
+          </button>
           </form>
-          <button class="btn btn-blue route-download__btn" disabled>Скачать PDF</button>
         </div>
 
       </div>

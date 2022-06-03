@@ -3376,6 +3376,17 @@ input, select {
   to {
     transform: scale(1); } }
 
+body::-webkit-scrollbar {
+  width: 14px; }
+
+body::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background: #a3b4ff; }
+  body::-webkit-scrollbar-thumb:hover {
+    background: #8a9fff; }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -3661,25 +3672,25 @@ body {
         background-color: #fff;
         border: 1px solid #14405a; }
     .route-map.scrolled .dot-1 {
-      animation: fadeIn 1s forwards; }
+      animation: fadeIn 1s forwards 1s; }
       .route-map.scrolled .dot-1::after {
-        animation: toLeft 1.5s forwards 1s ease; }
+        animation: toLeft 1.5s forwards 2s ease; }
     .route-map.scrolled .dot-2 {
-      animation: fadeIn 1s forwards 2.5s; }
+      animation: fadeIn 1s forwards 3.5s; }
       .route-map.scrolled .dot-2::after {
-        animation: toLeft 2s forwards 3.5s ease; }
+        animation: toLeft 2s forwards 4.5s ease; }
     .route-map.scrolled .dot-3 {
-      animation: fadeIn 1s forwards 5.5s; }
+      animation: fadeIn 1s forwards 6.5s; }
       .route-map.scrolled .dot-3::after {
-        animation: toRight 3s forwards 6.5s ease; }
+        animation: toRight 3s forwards 7.5s ease; }
     .route-map.scrolled .dot-4 {
-      animation: fadeIn 1s forwards 8.5s; }
+      animation: fadeIn 1s forwards 9.5s; }
       .route-map.scrolled .dot-4::after {
-        animation: toLeft 4s forwards 9.5s ease; }
+        animation: toLeft 4s forwards 10.5s ease; }
     .route-map.scrolled .dot-5 {
-      animation: fadeIn 1s forwards 13s; }
+      animation: fadeIn 1s forwards 14s; }
       .route-map.scrolled .dot-5::after {
-        animation: toRight 2s forwards 14s ease; }
+        animation: toRight 2s forwards 15s ease; }
     .route-map .dot-1 {
       font-size: var(--fz-main-text);
       top: 110px;
@@ -3960,3 +3971,41 @@ body {
       max-width: 120px;
       font-weight: var(--font-regular);
       font-size: var(--fz-small-text); }
+  .route-download {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; }
+    .route-download__text {
+      max-width: 480px;
+      font-size: var(--fz-3);
+      line-height: 30px; }
+      .route-download__text span {
+        margin-top: 5px;
+        display: block;
+        font-size: var(--fz-main-text);
+        line-height: 20px; }
+    .route-download form {
+      display: flex; }
+    .route-download__input {
+      width: 100%;
+      padding: 15px 35px;
+      font-weight: var(--font-bold);
+      font-size: var(--fz-4);
+      line-height: 25px;
+      border: 1px solid var(--main-color);
+      margin-right: 40px; }
+      .route-download__input::placeholder {
+        opacity: 0.6;
+        font-size: 17px; }
+      .route-download__input:focus {
+        outline: 1px solid var(--main-color); }
+    .route-download__btn {
+      font-weight: var(--font-bold);
+      font-size: var(--fz-subtitle-btn); }
+      .route-download__btn:disabled {
+        opacity: 0.6; }
+        .route-download__btn:disabled:hover span {
+          border-image-source: linear-gradient(to right, var(--main-color), var(--main-color)); }
+      .route-download__btn span {
+        padding: 9px 57px;
+        width: 243px; }

@@ -1,0 +1,14 @@
+body {
+  &::-webkit-scrollbar {
+    width: 14px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    background: hsl(229, 100%, 82%);
+    &:hover {
+      background: hsl(229, 100%, 77%);
+    }
+  }
+}
