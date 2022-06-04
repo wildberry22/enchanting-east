@@ -4027,6 +4027,7 @@ body {
       .route-download__btn span {
         padding: 9px 57px;
         width: 243px; }
+<<<<<<< HEAD
 
 .benefits {
   position: relative;
@@ -4107,3 +4108,5 @@ body {
         margin-bottom: 10px;
         font-weight: var(--font-regular);
         text-transform: uppercase; }
+=======
+>>>>>>> 13fb1f9baa46e85fa13ba70d269d85c4e6724e7d
