@@ -98,9 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/animateWithScroll.js */ "./src/assets/js/modules/animateWithScroll.js");
 /* harmony import */ var _modules_tabs_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/tabs.js */ "./src/assets/js/modules/tabs.js");
 /* harmony import */ var _modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/gallery.js */ "./src/assets/js/modules/gallery.js");
-/* harmony import */ var _modules_gallery_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _modules_mask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/mask.js */ "./src/assets/js/modules/mask.js");
-/* harmony import */ var _modules_mask_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_mask_js__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/downloadFile.js */ "./src/assets/js/modules/downloadFile.js");
 
 
@@ -114,11 +112,13 @@ Object(_modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
 Object(_modules_tabs_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.route-info__title-item', '.route-info__content-item'); // route gallery 
 
-_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2___default()('.route-info__item-photo img'); // phone mask
+Object(_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.route-info__item-photo img'); // phone mask
 
-_modules_mask_js__WEBPACK_IMPORTED_MODULE_3___default()('.route-download__input'); // download pdf file second section
+Object(_modules_mask_js__WEBPACK_IMPORTED_MODULE_3__["default"])('.route-download__input'); // download pdf file second section
 
-Object(_modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__["default"])('.route-download__btn', 'download-files/1.pdf', '.route-download__input');
+Object(_modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__["default"])('.route-download__btn', 'download-files/1.pdf', '.route-download__input'); // price gallery 
+
+Object(_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.price-list__item-img img');
 
 /***/ }),
 
@@ -171,6 +171,30 @@ function animateWithScroll() {
 
 /***/ }),
 
+/***/ "./src/assets/js/modules/calcScroll.js":
+/*!*********************************************!*\
+  !*** ./src/assets/js/modules/calcScroll.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return calcScroll; });
+function calcScroll() {
+  let div = document.createElement('div');
+  div.style.width = '50px';
+  div.style.height = '50px';
+  div.style.overflowY = 'scroll';
+  div.style.visibility = 'hidden';
+  document.body.appendChild(div);
+  let scrollWidth = div.offsetWidth - div.clientWidth;
+  div.remove();
+  return scrollWidth - 3;
+}
+
+/***/ }),
+
 /***/ "./src/assets/js/modules/downloadFile.js":
 /*!***********************************************!*\
   !*** ./src/assets/js/modules/downloadFile.js ***!
@@ -215,10 +239,56 @@ function downloadFile(btnSelector, fileUrl) {
 /*!******************************************!*\
   !*** ./src/assets/js/modules/gallery.js ***!
   \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: F:\\web\\_projects\\enchanting-east\\src\\assets\\js\\modules\\gallery.js: Unexpected token (48:0)\n\n\u001b[0m \u001b[90m 46 |\u001b[39m       imgEl\u001b[33m.\u001b[39mremove()\u001b[0m\n\u001b[0m \u001b[90m 47 |\u001b[39m     }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 49 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 50 |\u001b[39m   }\u001b[0m\n\u001b[0m \u001b[90m 51 |\u001b[39m\u001b[0m\n    at instantiate (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:358:12)\n    at Parser.raise (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:3334:19)\n    at Parser.unexpected (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:3372:16)\n    at Parser.parseExprAtom (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:13014:22)\n    at Parser.parseExprSubscripts (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12539:23)\n    at Parser.parseUpdate (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12518:21)\n    at Parser.parseMaybeUnary (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12489:23)\n    at Parser.parseMaybeUnaryOrPrivate (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12283:61)\n    at Parser.parseExprOps (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12290:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return gallery; });
+/* harmony import */ var _calcScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calcScroll.js */ "./src/assets/js/modules/calcScroll.js");
+
+function gallery(itemSelector) {
+  const overlay = document.querySelector('.overlay');
+  const items = document.querySelectorAll(itemSelector);
+  const imgEl = document.createElement('img');
+  imgEl.classList.add('gallery-img');
+  const scroll = Object(_calcScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      imgEl.src = item.getAttribute('src');
+      imgEl.alt = item.getAttribute('alt');
+      activateOverlay();
+    });
+  });
+  closeOverlay();
+
+  function activateOverlay() {
+    overlay.classList.add('active');
+    document.body.style.overflowY = 'hidden';
+    document.body.style.marginRight = scroll + 'px';
+    overlay.appendChild(imgEl);
+  }
+
+  function closeOverlay() {
+    document.addEventListener('keydown', e => {
+      if (e.keyCode === 27) {
+        removeOverlay();
+      }
+    });
+    overlay.addEventListener('click', e => {
+      if (e.target != imgEl) {
+        removeOverlay();
+      }
+    });
+
+    function removeOverlay() {
+      overlay.classList.remove('active');
+      document.body.style.overflowY = 'visible';
+      document.body.style.marginRight = '0px';
+      imgEl.remove();
+    }
+  }
+}
 
 /***/ }),
 
@@ -226,10 +296,58 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*!***************************************!*\
   !*** ./src/assets/js/modules/mask.js ***!
   \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: F:\\web\\_projects\\enchanting-east\\src\\assets\\js\\modules\\mask.js: Unexpected token (4:0)\n\n\u001b[0m \u001b[90m 2 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 3 |\u001b[39m   \u001b[36mfunction\u001b[39m setCursorPosition(pos\u001b[33m,\u001b[39m elem) {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 |\u001b[39m \t\telem\u001b[33m.\u001b[39mfocus()\u001b[0m\n\u001b[0m \u001b[90m 6 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 7 |\u001b[39m \t\t\u001b[36mif\u001b[39m (elem\u001b[33m.\u001b[39msetSelectionRange) {\u001b[0m\n    at instantiate (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:358:12)\n    at Parser.raise (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:3334:19)\n    at Parser.unexpected (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:3372:16)\n    at Parser.parseExprAtom (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:13014:22)\n    at Parser.parseExprSubscripts (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12539:23)\n    at Parser.parseUpdate (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12518:21)\n    at Parser.parseMaybeUnary (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12489:23)\n    at Parser.parseMaybeUnaryOrPrivate (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12283:61)\n    at Parser.parseExprOps (F:\\web\\_projects\\enchanting-east\\node_modules\\@babel\\core\\node_modules\\@babel\\parser\\lib\\index.js:12290:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return mask; });
+function mask(selector) {
+  function setCursorPosition(pos, elem) {
+    elem.focus();
+
+    if (elem.setSelectionRange) {
+      elem.setSelectionRange(pos, pos);
+    } else if (elem.createTextRange) {
+      let range = elem.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', pos);
+      range.moveStart('character', pos);
+      range.select();
+    }
+  }
+
+  function createMask(event) {
+    let matrix = '+38 (0__) ___ __ __';
+    let i = 0;
+    let def = matrix.replace(/\D/g, '');
+    let val = this.value.replace(/\D/g, '');
+
+    if (def.length >= val.length) {
+      val = def;
+    }
+
+    this.value = matrix.replace(/./g, function (a) {
+      return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
+    });
+
+    if (event.type === 'blur') {
+      if (this.value.length == 2) {
+        this.value = '';
+      }
+    } else {
+      setCursorPosition(this.value.length, this);
+    }
+  }
+
+  let inputs = document.querySelectorAll(selector);
+  inputs.forEach(input => {
+    input.addEventListener('input', createMask);
+    input.addEventListener('focus', createMask);
+    input.addEventListener('blur', createMask);
+  });
+}
+;
 
 /***/ }),
 

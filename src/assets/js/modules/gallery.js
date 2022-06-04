@@ -45,25 +45,6 @@ export default function gallery(itemSelector) {
       document.body.style.marginRight = '0px'
       imgEl.remove()
     }
-<<<<<<< HEAD
-=======
-  }
-
-
-  
-  function calcScroll() {
-    let div = document.createElement('div')
-
-    div.style.width = '50px'
-    div.style.height = '50px'
-    div.style.overflowY = 'scroll'
-    div.style.visibility = 'hidden'
-
-    document.body.appendChild(div)
-    let scrollWidth = div.offsetWidth - div.clientWidth
-    div.remove()
-    return scrollWidth
->>>>>>> 13fb1f9baa46e85fa13ba70d269d85c4e6724e7d
   }
 
 }

@@ -16,4 +16,6 @@ gallery('.route-info__item-photo img')
 mask('.route-download__input')
 // download pdf file second section
 downloadFile('.route-download__btn', 'download-files/1.pdf', '.route-download__input')
+// price gallery 
+gallery('.price-list__item-img img')
 
