@@ -66,7 +66,7 @@
                 <a class="header-nav__list-link" href="#route">Маршрут</a>
               </li>
               <li class="header-nav__list-item">
-                <a class="header-nav__list-link" href="#">Преимущества</a>
+                <a class="header-nav__list-link" href="#benefits">Преимущества</a>
               </li>
               <li class="header-nav__list-item">
                 <a class="header-nav__list-link" href="#">Цены и каюты</a>
@@ -110,11 +110,11 @@
     <!-- ========== Section Route ========== -->
     <section class="route" id="route">
       <div class="container">
-        <div class="title route__title">маршрут</div>
-        <div class="subtitle route__subtitle">вас ждет 5 городов в маршруте</div>
+        <div class="title route__title animate__animated animate__fadeInLeft wow">маршрут</div>
+        <div class="subtitle route__subtitle animate__animated animate__fadeInLeft wow">вас ждет 5 городов в маршруте</div>
 
         <div class="route-map__wrapper">
-          <div class="route-map js-scroll">
+          <div class="route-map js-scroll animate__animated animate__fadeIn animate__delay-1s wow">
             <div class="route-map__dot dot-1">Dubai</div>
             <div class="route-map__dot dot-2">Abu Dhabi</div>
             <div class="route-map__dot dot-3">Doha</div>
@@ -122,7 +122,7 @@
             <div class="route-map__dot dot-5">Khalifa Bin Salman</div>
           </div>
 
-          <div class="route-map__descr">
+          <div class="route-map__descr  animate__animated animate__fadeIn animate__delay-1s wow">
             <div class="route-map__descr-names">ДУБАЙ / АБУ-ДАБИ / о. СИР-БАНИ-ЯС / ДАМАМ / ДОХА</div>
             <ul class="route-map__descr-list">
               <li class="route-map__descr-item item-1"><span>2 дня в Дубаи.</span></li>
@@ -132,7 +132,7 @@
           </div>
         </div>
 
-        <div class="route-info">
+        <div class="route-info animate__animated animate__fadeIn animate__delay-1s wow">
           <div class="route-info__wrapper">
 
             <ul class="route-info__title-list">
@@ -528,20 +528,59 @@
           </div>
         </div>
 
-        <div class="route-download">
+        <div class="route-download animate__animated animate__fadeIn animate__delay-0-5s wow">
           <div class="route-download__text">
             Получите всю програму в формате PDF.
             <span>*Для скачивания введите Ваш номер телефона.</span>
           </div>
-          <form action="#">
-            <input class="route-download__input" type="number" required placeholder="Введите Ваш номер телефона">
+          <form class="route-download__form" action="#">
+            <input class="route-download__input" type="text" required placeholder="Введите Ваш номер телефона">
+            <button class="btn btn-blue route-download__btn" type="submit" disabled>
+              <span>Скачать PDF</span> 
+          </button>
           </form>
-          <button class="btn btn-blue route-download__btn" disabled>Скачать PDF</button>
         </div>
 
       </div>
     </section>
 
+    <!-- ========== Section Benefits ========== -->
+    <section class="benefits" id="benefits">
+      <div class="container">
+
+        <div class="benefits-title title animate__animated animate__fadeInLeft wow">ПРЕИМУЩЕСТВА</div>
+        <div class="benefits-subtitle subtitle animate__animated animate__fadeInLeft wow">КРУИЗНЫЙ ОТДЫХ ПОДОЙДЕТ ВСЕМ ВОЗРАСТНЫМ КАТЕГОРИЯМ</div>
+        
+        <div class="benefits-wrapper">
+          <ul class="benefits-list">
+            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-0-7s wow">
+              <div class="benefits-list__item-wrapper">
+                <h6 class="benefits-list__item-title">Вам не нужно беспокоится об авиабилетах</h6>
+                <div class="benefits-list__item-descr">Ми подобрали удобный перелет, подготовим билеты за Вас.</d>
+              </div>
+            </li>
+            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-1s wow">
+              <div class="benefits-list__item-wrapper">
+                <h6 class="benefits-list__item-title">Вы не узнаете, что такое “морская болезнь”</h6>
+                <div class="benefits-list__item-descr">Лайнер  Costa Firenze  оснащен современными стабилизаторами качки.</d>
+              </div>
+            </li>
+            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-1-3s wow">
+              <div class="benefits-list__item-wrapper">
+                <h6 class="benefits-list__item-title">Вам не обязательно знать английский</h6>
+                <div class="benefits-list__item-descr">На лайнере есть русскоязычный персонал, меню и программа для на русском.</d>
+              </div>
+            </li>
+            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-1-6s wow">
+              <div class="benefits-list__item-wrapper">
+                <h6 class="benefits-list__item-title">Множество развлечений на борту</h6>
+                <div class="benefits-list__item-descr">Развлекательные программы, басейны, джакузи, спортзал, множество рестораннов и прочее.</d>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
 
   </main>

@@ -42,33 +42,33 @@
     }
     &.scrolled {
       .dot-1 {
-        animation: fadeIn 1s forwards;
+        animation: fadeIn 1s forwards 1s;
         &::after {
-          animation: toLeft 1.5s forwards 1s ease;
+          animation: toLeft 1.5s forwards 2s ease;
         }
       }
       .dot-2 {
-        animation: fadeIn 1s forwards 2.5s;
+        animation: fadeIn 1s forwards 3.5s;
         &::after {
-          animation: toLeft 2s forwards 3.5s ease;
+          animation: toLeft 2s forwards 4.5s ease;
         }
       }
       .dot-3 {
-        animation: fadeIn 1s forwards 5.5s;
+        animation: fadeIn 1s forwards 6.5s;
         &::after {
-          animation: toRight 3s forwards 6.5s ease;
+          animation: toRight 3s forwards 7.5s ease;
         }
       }
       .dot-4 {
-        animation: fadeIn 1s forwards 8.5s;
+        animation: fadeIn 1s forwards 9.5s;
         &::after {
-          animation: toLeft 4s forwards 9.5s ease;
+          animation: toLeft 4s forwards 10.5s ease;
         }
       }
       .dot-5 {
-        animation: fadeIn 1s forwards 13s;
+        animation: fadeIn 1s forwards 14s;
         &::after {
-          animation: toRight 2s forwards 14s ease;
+          animation: toRight 2s forwards 15s ease;
         }
       }
     }
@@ -418,6 +418,59 @@
         font-size: var(--fz-small-text);
       }
     }
+  }
+
+  &-download {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    &__text {
+      max-width: 480px;
+      font-size: var(--fz-3);
+      line-height: 30px;
+      span {
+        margin-top: 5px;
+        display: block;
+        font-size: var(--fz-main-text);
+        line-height: 20px;
+      }
+    }
+    form {
+      display: flex;
+    }
+    &__input{
+      width: 100%;
+      padding: 15px 35px;
+      font-weight: var(--font-bold);
+      font-size: var(--fz-4);
+      line-height: 25px;
+      border: 1px solid var(--main-color);
+      margin-right: 40px;
+      &::placeholder {
+        opacity: 0.6;
+        font-size: 17px;
+      }
+      &:focus {
+        outline: 1px solid var(--main-color);
+      }
+    }
+    &__btn{
+      font-weight: var(--font-bold);
+      font-size: var(--fz-subtitle-btn);
+      &:disabled {
+        opacity: 0.6;
+        &:hover {
+          span {
+            border-image-source: linear-gradient(to right, var(--main-color), var(--main-color));
+          }
+        }
+      }
+      span {
+        padding: 9px 57px;
+        width: 243px;
+      }
+    }
+
   }
   
 }

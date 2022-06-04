@@ -98,6 +98,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/animateWithScroll.js */ "./src/assets/js/modules/animateWithScroll.js");
 /* harmony import */ var _modules_tabs_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/tabs.js */ "./src/assets/js/modules/tabs.js");
 /* harmony import */ var _modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/gallery.js */ "./src/assets/js/modules/gallery.js");
+/* harmony import */ var _modules_mask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/mask.js */ "./src/assets/js/modules/mask.js");
+/* harmony import */ var _modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/downloadFile.js */ "./src/assets/js/modules/downloadFile.js");
+
+
 
 
  // scroll animations for animate.css
@@ -108,7 +112,11 @@ Object(_modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
 Object(_modules_tabs_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.route-info__title-item', '.route-info__content-item'); // route gallery 
 
-Object(_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.route-info__item-photo img');
+Object(_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.route-info__item-photo img'); // phone mask
+
+Object(_modules_mask_js__WEBPACK_IMPORTED_MODULE_3__["default"])('.route-download__input'); // download pdf file second section
+
+Object(_modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__["default"])('.route-download__btn', 'download-files/1.pdf', '.route-download__input');
 
 /***/ }),
 
@@ -161,6 +169,70 @@ function animateWithScroll() {
 
 /***/ }),
 
+/***/ "./src/assets/js/modules/calcScroll.js":
+/*!*********************************************!*\
+  !*** ./src/assets/js/modules/calcScroll.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return calcScroll; });
+function calcScroll() {
+  let div = document.createElement('div');
+  div.style.width = '50px';
+  div.style.height = '50px';
+  div.style.overflowY = 'scroll';
+  div.style.visibility = 'hidden';
+  document.body.appendChild(div);
+  let scrollWidth = div.offsetWidth - div.clientWidth;
+  div.remove();
+  return scrollWidth - 3;
+}
+
+/***/ }),
+
+/***/ "./src/assets/js/modules/downloadFile.js":
+/*!***********************************************!*\
+  !*** ./src/assets/js/modules/downloadFile.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return downloadFile; });
+function downloadFile(btnSelector, fileUrl) {
+  let inputCheckSelector = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+  const input = document.querySelector(inputCheckSelector);
+  const btn = document.querySelector(btnSelector);
+
+  if (input) {
+    input.addEventListener('input', () => {
+      if (input.value.length == 19) btn.removeAttribute('disabled');else btn.setAttribute("disabled", "disabled");
+    });
+  }
+
+  btn.addEventListener('click', () => {
+    download();
+    input.value = '';
+    btn.setAttribute("disabled", "disabled");
+  });
+
+  function download() {
+    const link = document.createElement('a');
+    link.setAttribute('href', fileUrl);
+    link.setAttribute('download', 'fileName');
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+}
+
+/***/ }),
+
 /***/ "./src/assets/js/modules/gallery.js":
 /*!******************************************!*\
   !*** ./src/assets/js/modules/gallery.js ***!
@@ -171,11 +243,14 @@ function animateWithScroll() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return gallery; });
+/* harmony import */ var _calcScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calcScroll.js */ "./src/assets/js/modules/calcScroll.js");
+
 function gallery(itemSelector) {
   const overlay = document.querySelector('.overlay');
   const items = document.querySelectorAll(itemSelector);
   const imgEl = document.createElement('img');
   imgEl.classList.add('gallery-img');
+  const scroll = Object(_calcScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
   items.forEach(item => {
     item.addEventListener('click', () => {
       imgEl.src = item.getAttribute('src');
@@ -183,23 +258,94 @@ function gallery(itemSelector) {
       activateOverlay();
     });
   });
+  closeOverlay();
 
   function activateOverlay() {
     overlay.classList.add('active');
     document.body.style.overflowY = 'hidden';
-    overlay.append(imgEl);
-    overlay.addEventListener('click', e => {
-      if (e.target != imgEl) {
-        console.log(imgEl);
-        console.log(e.target);
-        overlay.classList.remove('active');
-        document.body.style.overflowY = 'visible';
-        imgEl.remove();
-        overlay.innerHTML = '';
+    document.body.style.marginRight = scroll + 'px';
+    overlay.appendChild(imgEl);
+  }
+
+  function closeOverlay() {
+    document.addEventListener('keydown', e => {
+      if (e.keyCode === 27) {
+        removeOverlay();
       }
     });
+    overlay.addEventListener('click', e => {
+      if (e.target != imgEl) {
+        removeOverlay();
+      }
+    });
+
+    function removeOverlay() {
+      overlay.classList.remove('active');
+      document.body.style.overflowY = 'visible';
+      document.body.style.marginRight = '0px';
+      imgEl.remove();
+    }
   }
 }
+
+/***/ }),
+
+/***/ "./src/assets/js/modules/mask.js":
+/*!***************************************!*\
+  !*** ./src/assets/js/modules/mask.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return mask; });
+function mask(selector) {
+  function setCursorPosition(pos, elem) {
+    elem.focus();
+
+    if (elem.setSelectionRange) {
+      elem.setSelectionRange(pos, pos);
+    } else if (elem.createTextRange) {
+      let range = elem.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', pos);
+      range.moveStart('character', pos);
+      range.select();
+    }
+  }
+
+  function createMask(event) {
+    let matrix = '+38 (0__) ___ __ __';
+    let i = 0;
+    let def = matrix.replace(/\D/g, '');
+    let val = this.value.replace(/\D/g, '');
+
+    if (def.length >= val.length) {
+      val = def;
+    }
+
+    this.value = matrix.replace(/./g, function (a) {
+      return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
+    });
+
+    if (event.type === 'blur') {
+      if (this.value.length == 2) {
+        this.value = '';
+      }
+    } else {
+      setCursorPosition(this.value.length, this);
+    }
+  }
+
+  let inputs = document.querySelectorAll(selector);
+  inputs.forEach(input => {
+    input.addEventListener('input', createMask);
+    input.addEventListener('focus', createMask);
+    input.addEventListener('blur', createMask);
+  });
+}
+;
 
 /***/ }),
 
