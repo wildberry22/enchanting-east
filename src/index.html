@@ -51,7 +51,7 @@
 
           <h1 class="header-main__title animate__animated animate__fadeInUp animate__delay-0-5s">Чарующий Восток <br> за 7 дней путишествия <br> с комфортом </h1>
           <h3 class="header-main__subtitle animate__animated animate__fadeIn animate__delay-2-5s">Круизный пактный тур по ОАЭ</h3>
-          <button class="btn btn-main header-main__btn animate__animated animate__fadeIn animate__delay-2-5s"><span>Маршрут</span></button>
+          <a class="btn btn-main header-main__btn animate__animated animate__fadeIn animate__delay-2-5s" href="#route"><span>Маршрут</span></a>
           <div class="header-main__price animate__animated animate__fadeIn animate__delay-2-5s">Стоимость от <span>25 999</span> грн</div>
         </div>
 
@@ -78,7 +78,7 @@
                 <a class="header-nav__list-link" href="#liner">Лайнер</a>
               </li>
               <li class="header-nav__list-item">
-                <a class="header-nav__list-link" href="#">Отзывы</a>
+                <a class="header-nav__list-link" href="#testimonials">Отзывы</a>
               </li>
             </ul>
           </nav>
@@ -535,7 +535,7 @@
             <span>*Для скачивания введите Ваш номер телефона.</span>
           </div>
           <form class="route-download__form" action="#">
-            <input class="route-download__input" type="text" required placeholder="Введите Ваш номер телефона">
+            <input class="route-download__input" type="tel" required placeholder="Введите Ваш номер телефона">
             <button class="btn btn-blue route-download__btn" type="submit" disabled>
               <span>Скачать PDF</span> 
           </button>
@@ -891,12 +891,116 @@
     </section>
 
 
+    <!-- ========== Section Testimonials ========== -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <h2 class="testimonials-title title animate__animated animate__fadeInLeft wow">ЧТО ГОВОРЯТ ТУРИСТЫ О НАС</h2>
+        <h3 class="testimonials-subtitle subtitle animate__animated animate__fadeInLeft wow">ДЛЯ МНОГИХ КРУИЗНЫЙ ОТДЫХ СТАЛ ЛЮБИМЫМ</h3>
+
+        <div class="testimonials-wrapper">
+          <ul class="testimonials-list">
+
+            <li class="testimonials-list__item animate__animated animate__fadeIn animate__delay-0-7s wow">
+              <div class="testimonials-list__item-top">
+                <div class="testimonials-list__item-photo">
+                  <img src="./img/testimonials-section/people/1.jpg" alt="person 1">
+                </div>
+                <div class="testimonials-list__item-descr">
+                  <div class="testimonials-list__item-name">Тарас Щербаков</div>
+                  <div class="testimonials-list__item-date">Июль, 2020</div>
+                  <div class="testimonials-list__item-where">Средиземноморье</div>
+                  <div class="testimonials-list__item-liner">Лайнер Costa Diadema</div>
+                </div>
+              </div>
+              <div class="testimonials-list__item-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum eget mi, imperdiet et mauris, sed lacus. Nisi massa tristique aliquam sed. Scelerisque consequat at aliquam eget sagittis metus in pellentesque elementum.
+                </p>
+                <p>
+                  Nisi massa tristique aliquam sed. Scelerisque consequat at aliquam eget sagittis metus in pellentesque elementum.
+                </p>
+              </div>
+            </li>
+
+            <li class="testimonials-list__item animate__animated animate__fadeIn animate__delay-1s wow">
+              <div class="testimonials-list__item-top">
+                <div class="testimonials-list__item-photo">
+                  <img src="./img/testimonials-section/people/2.jpg" alt="person 2">
+                </div>
+                <div class="testimonials-list__item-descr">
+                  <div class="testimonials-list__item-name">Янита Доронина</div>
+                  <div class="testimonials-list__item-date">Июнь, 2020</div>
+                  <div class="testimonials-list__item-where">Средиземноморье</div>
+                  <div class="testimonials-list__item-liner">Лайнер Costa Diadema</div>
+                </div>
+              </div>
+              <div class="testimonials-list__item-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum eget mi, imperdiet et mauris, sed lacus. Nisi massa tristique aliquam sed. Scelerisque consequat at aliquam eget sagittis metus in pellentesque elementum.
+                </p>
+              </div>
+            </li>
+
+            <li class="testimonials-list__item animate__animated animate__fadeIn animate__delay-1-3s wow">
+              <div class="testimonials-list__item-top">
+                <div class="testimonials-list__item-photo">
+                  <img src="./img/testimonials-section/people/3.jpg" alt="person 3">
+                </div>
+                <div class="testimonials-list__item-descr">
+                  <div class="testimonials-list__item-name">Шанетта Гамула</div>
+                  <div class="testimonials-list__item-date">Август, 2020</div>
+                  <div class="testimonials-list__item-where">Средиземноморье</div>
+                  <div class="testimonials-list__item-liner">Лайнер Costa Diadema</div>
+                </div>
+              </div>
+              <div class="testimonials-list__item-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum eget mi, imperdiet et mauris, sed lacus. Nisi massa tristique aliquam sed. 
+                </p>
+                <p>
+                  Nisi massa tristique aliquam sed. Scelerisque consequat at aliquam eget sagittis metus in pellentesque elementum.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="testimonials-book animate__animated animate__fadeIn animate__delay-1-6s wow">
+            <div class="testimonials-book__text">Забронируйте тур сейчас и получите яркие воспоминания.</div>
+            <button class="testimonials-book__btn btn btn-main"><span>Забронировать тур</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
   </main>
 
 
 
   <!-- ========== overlay ========== -->
-  <div class="overlay"></div>
+  <div class="overlay">
+    <!-- <div class="modal" id="modal">
+      <div class="modal-wrapper">
+        <div class="modal__text">Оставте заявку и наш специалист свяжется с Вами для обсждения деталей</div>
+        <form class="modal-form">
+          <div class="modal__input-wrapper">
+            <label class="modal__input-label" for="name">Имя</label>
+            <input class="modal__input" type="text" name="name" id="name" required>
+          </div>
+          <div class="modal__input-wrapper">
+            <label class="modal__input-label" for="phone">Телефон</label>
+            <input class="modal__input" type="tel" name="phone" id="phone" placeholder="+38(0__)___-__-__" required>
+          </div>
+          <div class="modal__input-wrapper">
+            <label class="modal__input-label" for="email">Электронная почта</label>
+            <input class="modal__input" type="email" name="email" id="email" required>
+          </div>
+          <button class="modal__btn btn btn-main" type="submit"><span>Отправить</span></button>
+        </form>
+      </div>
+    </div> -->
+  </div>
 
   <!-- ========== JS ========== -->
     <script src="js/wow.min.js"></script>

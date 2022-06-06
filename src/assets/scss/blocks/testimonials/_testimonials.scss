@@ -1,0 +1,80 @@
+.testimonials {
+  padding: 10px 0 80px;
+  &-subtitle {
+    margin-bottom: 50px;
+  }
+  &-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 50px;
+    &__item {
+      flex: 1;
+      padding: 30px;
+      border: 1px solid;
+      border-image-slice: 1;
+      border-width: 1px;
+      border-image-source: linear-gradient(135deg, var(--yellow-color), #fff);
+      &-top {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+      &-photo {
+        img {
+          width: 75px;
+          height: 75px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+      &-name {
+        font-weight: var(--font-bold);
+        margin-bottom: 8px;
+      }
+      &-date, &-where, &-liner {
+        font-size: var(--fz-small-text);
+        line-height: 18px;
+      }
+      &-text {
+        position: relative;
+        padding: 25px 35px 25px;
+        min-height: 330px;
+        background-color: var(--main-color);
+        color: var(--light-color);
+        box-shadow: -10px 10px 25px rgba(0, 0, 0, 0.15);
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: -30px;
+          right: -30px;
+          width: 60px;
+          height: 60px;
+          background: url(../img/testimonials-section/circle.png) center center/cover no-repeat;
+        }
+        p {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+  &-book {
+    &__text {
+      font-family: var(--playfair-display-font);
+      font-weight: var(--font-bold);
+      font-size: var(--fz-2);
+      line-height: 35px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    &__btn {
+      display: block;
+      margin: 0 auto;
+      span {
+        padding: 7px 20px;
+      }
+    }
+  }
+}
