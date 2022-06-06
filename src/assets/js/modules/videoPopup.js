@@ -1,20 +1,17 @@
 import calcScroll from "./calcScroll.js"
 
-export default function gallery(itemSelector) {
+export default function videoPopup(src, openBtn) {
   const overlay = document.querySelector('.overlay')
-  const items = document.querySelectorAll(itemSelector)
-
-  const imgEl = document.createElement('img')
-  imgEl.classList.add('gallery-img')
-
+  const openVideoBtn = document.querySelector(openBtn)
   const scroll = calcScroll()
 
-  items.forEach(item => {
-    item.addEventListener('click', () => {
-      imgEl.src = item.getAttribute('src')
-      imgEl.alt = item.getAttribute('alt')
-      activateOverlay()
-    })
+  const wrap = document.createElement('div')
+  wrap.innerHTML = `
+  <iframe class="liner-video__popup" width="1000" height="600" src="${src}" title="COSTA FIRENZE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  `
+
+  openVideoBtn.addEventListener('click', () => {
+    activateOverlay()
   })
 
   closeOverlay()
@@ -23,7 +20,7 @@ export default function gallery(itemSelector) {
     overlay.classList.add('active')
     document.body.style.overflowY = 'hidden'
     document.body.style.marginRight = scroll + 'px'
-    overlay.appendChild(imgEl)
+    overlay.appendChild(wrap)
   }
 
   function closeOverlay() {
@@ -43,8 +40,7 @@ export default function gallery(itemSelector) {
       overlay.classList.remove('active')
       document.body.style.overflowY = 'visible'
       document.body.style.marginRight = '0px'
-      imgEl.remove()
-      overlay.innerHTML = ''
+      wrap.remove()
     }
   }
 

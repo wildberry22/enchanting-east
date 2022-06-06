@@ -100,6 +100,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/gallery.js */ "./src/assets/js/modules/gallery.js");
 /* harmony import */ var _modules_mask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/mask.js */ "./src/assets/js/modules/mask.js");
 /* harmony import */ var _modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/downloadFile.js */ "./src/assets/js/modules/downloadFile.js");
+/* harmony import */ var _modules_videoPopup_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/videoPopup.js */ "./src/assets/js/modules/videoPopup.js");
+
 
 
 
@@ -110,15 +112,15 @@ new WOW().init(); // scroll animations for elements with ".js-scroll"
 
 Object(_modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])(); // tabs
 
-Object(_modules_tabs_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.route-info__title-item', '.route-info__content-item'); // route gallery 
+Object(_modules_tabs_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.route-info__title-item', '.route-info__content-item'); // gallery 
 
-Object(_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.route-info__item-photo img'); // phone mask
+Object(_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.gallery-watch'); // phone mask
 
 Object(_modules_mask_js__WEBPACK_IMPORTED_MODULE_3__["default"])('.route-download__input'); // download pdf file second section
 
-Object(_modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__["default"])('.route-download__btn', 'download-files/1.pdf', '.route-download__input'); // price gallery 
+Object(_modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__["default"])('.route-download__btn', 'download-files/1.pdf', '.route-download__input'); // liner video popup
 
-Object(_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.price-list__item-img img');
+Object(_modules_videoPopup_js__WEBPACK_IMPORTED_MODULE_5__["default"])('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn');
 
 /***/ }),
 
@@ -276,7 +278,7 @@ function gallery(itemSelector) {
       }
     });
     overlay.addEventListener('click', e => {
-      if (e.target != imgEl) {
+      if (e.target == overlay) {
         removeOverlay();
       }
     });
@@ -286,6 +288,7 @@ function gallery(itemSelector) {
       document.body.style.overflowY = 'visible';
       document.body.style.marginRight = '0px';
       imgEl.remove();
+      overlay.innerHTML = '';
     }
   }
 }
@@ -382,6 +385,61 @@ function tabs(titleSelector, contentSelector) {
   function removeActiveClass() {
     titles.forEach(title => title.classList.remove(activeClass));
     contents.forEach(content => content.classList.remove(activeClass));
+  }
+}
+
+/***/ }),
+
+/***/ "./src/assets/js/modules/videoPopup.js":
+/*!*********************************************!*\
+  !*** ./src/assets/js/modules/videoPopup.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return videoPopup; });
+/* harmony import */ var _calcScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calcScroll.js */ "./src/assets/js/modules/calcScroll.js");
+
+function videoPopup(src, openBtn) {
+  const overlay = document.querySelector('.overlay');
+  const openVideoBtn = document.querySelector(openBtn);
+  const scroll = Object(_calcScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  const wrap = document.createElement('div');
+  wrap.innerHTML = `
+  <iframe class="liner-video__popup" width="1000" height="600" src="${src}" title="COSTA FIRENZE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  `;
+  openVideoBtn.addEventListener('click', () => {
+    activateOverlay();
+  });
+  closeOverlay();
+
+  function activateOverlay() {
+    overlay.classList.add('active');
+    document.body.style.overflowY = 'hidden';
+    document.body.style.marginRight = scroll + 'px';
+    overlay.appendChild(wrap);
+  }
+
+  function closeOverlay() {
+    document.addEventListener('keydown', e => {
+      if (e.keyCode === 27) {
+        removeOverlay();
+      }
+    });
+    overlay.addEventListener('click', e => {
+      if (e.target == overlay) {
+        removeOverlay();
+      }
+    });
+
+    function removeOverlay() {
+      overlay.classList.remove('active');
+      document.body.style.overflowY = 'visible';
+      document.body.style.marginRight = '0px';
+      wrap.remove();
+    }
   }
 }
 

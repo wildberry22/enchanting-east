@@ -3,6 +3,7 @@ import tabs from "./modules/tabs.js";
 import gallery from "./modules/gallery.js";
 import mask from "./modules/mask.js";
 import downloadFile from './modules/downloadFile.js'
+import videoPopup from "./modules/videoPopup.js";
 
 // scroll animations for animate.css
 new WOW().init()
@@ -10,12 +11,12 @@ new WOW().init()
 animateWithScroll()
 // tabs
 tabs('.route-info__title-item', '.route-info__content-item')
-// route gallery 
-gallery('.route-info__item-photo img')
+// gallery 
+gallery('.gallery-watch')
 // phone mask
 mask('.route-download__input')
 // download pdf file second section
 downloadFile('.route-download__btn', 'download-files/1.pdf', '.route-download__input')
-// price gallery 
-gallery('.price-list__item-img img')
+// liner video popup
+videoPopup('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn')
 
