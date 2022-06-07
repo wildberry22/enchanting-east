@@ -3494,6 +3494,14 @@ body {
   animation: zoomIn 0.5s forwards;
   z-index: 20; }
 
+.status {
+  font-size: 18px;
+  max-width: 300px;
+  color: var(--main-color);
+  font-weight: var(--font-bold);
+  margin: 20px auto 0;
+  text-align: center; }
+
 .header {
   height: 100vh;
   padding: 50px 0;
@@ -4697,16 +4705,33 @@ body {
 
 .modal {
   background: #fff;
-  min-width: 600px;
+  min-width: 500px;
   min-height: 450px;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  text-align: center; }
   .modal__text {
     max-width: 317px;
     font-family: var(--playfair-display-font);
     font-weight: var(--font-regular);
     margin-bottom: 10px; }
-  .modal__input-wrapper {
-    display: flex;
-    flex-direction: column; }
+  .modal__input {
+    width: 200px;
+    height: 40px;
+    border: 1px solid #0061BF;
+    padding: 10px;
+    margin: 0 auto; }
+    .modal__input:focus {
+      outline: 1px solid #0061BF; }
+    .modal__input-wrapper {
+      display: flex;
+      flex-direction: column; }
+    .modal__input-label {
+      margin-bottom: 5px; }
+  .modal__btn {
+    margin-top: 30px;
+    width: 200px;
+    font-size: 18px; }
+    .modal__btn span {
+      padding: 7px 30px; }

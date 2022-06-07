@@ -535,10 +535,10 @@
             <span>*Для скачивания введите Ваш номер телефона.</span>
           </div>
           <form class="route-download__form" action="#">
-            <input class="route-download__input" type="tel" required placeholder="Введите Ваш номер телефона">
+            <input class="route-download__input" type="tel" id="tel" name="tel" required placeholder="Введите Ваш номер телефона">
             <button class="btn btn-blue route-download__btn" type="submit" disabled>
               <span>Скачать PDF</span> 
-          </button>
+            </button>
           </form>
         </div>
 
@@ -617,7 +617,7 @@
                   <div class="price-list__item-price">25 999 грн</div>
                 </div>
               </div>
-              <button class="btn btn-blacktext price-list__item-btn"><span>Предбронь</span></button>
+              <button class="btn btn-blacktext price-list__item-btn" data-open-modal><span>Предбронь</span></button>
             </li>
 
             <li class="price-list__item animate__animated animate__fadeIn animate__delay-1s wow">
@@ -643,7 +643,7 @@
                   <div class="price-list__item-price">30 999 грн</div>
                 </div>
               </div>
-              <button class="btn btn-blacktext price-list__item-btn"><span>Предбронь</span></button>
+              <button class="btn btn-blacktext price-list__item-btn" data-open-modal><span>Предбронь</span></button>
             </li>
 
             <li class="price-list__item animate__animated animate__fadeIn animate__delay-1-3s wow">
@@ -669,7 +669,7 @@
                   <div class="price-list__item-price">35 999 грн</div>
                 </div>
               </div>
-              <button class="btn btn-blacktext price-list__item-btn"><span>Предбронь</span></button>
+              <button class="btn btn-blacktext price-list__item-btn" data-open-modal><span>Предбронь</span></button>
             </li>
 
           </ul>
@@ -733,7 +733,7 @@
                     внутренняя каюта/ каюта с окном/ каюта с балконом - $14.50/чел. за сутки; <br>
                     сьют - $17.50/чел. за сутки.</div>
                 </div>
-                <button class="btn btn-main include-content__pay-btn"><span>Оставить заявку</span></button>
+                <button class="btn btn-main include-content__pay-btn" data-open-modal><span>Оставить заявку</span></button>
               </div>
             </div>
           </div>
@@ -838,7 +838,7 @@
 
         </div>
 
-        <button class="liner-btn btn btn-main btn animate__animated animate__fadeIn animate__delay-0-5s wow"><span>Забронировать тур</span></button>
+        <button class="liner-btn btn btn-main btn animate__animated animate__fadeIn animate__delay-0-5s wow" data-open-modal><span>Забронировать тур</span></button>
 
       </div>
     </section>
@@ -967,7 +967,7 @@
 
           <div class="testimonials-book animate__animated animate__fadeIn animate__delay-1-6s wow">
             <div class="testimonials-book__text">Забронируйте тур сейчас и получите яркие воспоминания.</div>
-            <button class="testimonials-book__btn btn btn-main"><span>Забронировать тур</span></button>
+            <button class="testimonials-book__btn btn btn-main" data-open-modal><span>Забронировать тур</span></button>
           </div>
         </div>
       </div>
@@ -976,21 +976,22 @@
 
   </main>
 
-
+  
 
   <!-- ========== overlay ========== -->
   <div class="overlay">
-    <!-- <div class="modal" id="modal">
+ <!--    modal -->
+    <div class="modal" style="display: none">
       <div class="modal-wrapper">
         <div class="modal__text">Оставте заявку и наш специалист свяжется с Вами для обсждения деталей</div>
-        <form class="modal-form">
+        <form class="modal-form" action="#">
           <div class="modal__input-wrapper">
             <label class="modal__input-label" for="name">Имя</label>
             <input class="modal__input" type="text" name="name" id="name" required>
           </div>
           <div class="modal__input-wrapper">
             <label class="modal__input-label" for="phone">Телефон</label>
-            <input class="modal__input" type="tel" name="phone" id="phone" placeholder="+38(0__)___-__-__" required>
+            <input class="modal__input modal__input-tel" type="tel" name="phone" id="phone" placeholder="+38(0__)___-__-__" required>
           </div>
           <div class="modal__input-wrapper">
             <label class="modal__input-label" for="email">Электронная почта</label>
@@ -999,7 +1000,7 @@
           <button class="modal__btn btn btn-main" type="submit"><span>Отправить</span></button>
         </form>
       </div>
-    </div> -->
+    </div>
   </div>
 
   <!-- ========== JS ========== -->

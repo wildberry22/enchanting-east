@@ -101,6 +101,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_mask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/mask.js */ "./src/assets/js/modules/mask.js");
 /* harmony import */ var _modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/downloadFile.js */ "./src/assets/js/modules/downloadFile.js");
 /* harmony import */ var _modules_videoPopup_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/videoPopup.js */ "./src/assets/js/modules/videoPopup.js");
+/* harmony import */ var _modules_modal_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modal.js */ "./src/assets/js/modules/modal.js");
+
 
 
 
@@ -120,7 +122,9 @@ Object(_modules_mask_js__WEBPACK_IMPORTED_MODULE_3__["default"])('.route-downloa
 
 Object(_modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__["default"])('.route-download__btn', 'download-files/1.pdf', '.route-download__input'); // liner video popup
 
-Object(_modules_videoPopup_js__WEBPACK_IMPORTED_MODULE_5__["default"])('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn');
+Object(_modules_videoPopup_js__WEBPACK_IMPORTED_MODULE_5__["default"])('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn'); // modal window
+
+Object(_modules_modal_js__WEBPACK_IMPORTED_MODULE_6__["default"])('[data-open-modal]');
 
 /***/ }),
 
@@ -209,6 +213,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return downloadFile; });
 function downloadFile(btnSelector, fileUrl) {
   let inputCheckSelector = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+  const form = document.querySelector('.route-download__form');
   const input = document.querySelector(inputCheckSelector);
   const btn = document.querySelector(btnSelector);
 
@@ -220,9 +225,27 @@ function downloadFile(btnSelector, fileUrl) {
 
   btn.addEventListener('click', () => {
     download();
-    input.value = '';
-    btn.setAttribute("disabled", "disabled");
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      postData('./server.php', formData).then(res => {
+        console.log(res);
+      }).finally(() => {
+        input.value = '';
+      });
+    });
+    setTimeout(() => {
+      btn.setAttribute("disabled", "disabled");
+    });
   });
+
+  const postData = async (url, data) => {
+    let res = await fetch(url, {
+      method: 'POST',
+      body: data
+    });
+    return await res.text();
+  };
 
   function download() {
     const link = document.createElement('a');
@@ -247,50 +270,20 @@ function downloadFile(btnSelector, fileUrl) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return gallery; });
-/* harmony import */ var _calcScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calcScroll.js */ "./src/assets/js/modules/calcScroll.js");
+/* harmony import */ var _overlay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./overlay */ "./src/assets/js/modules/overlay.js");
 
 function gallery(itemSelector) {
-  const overlay = document.querySelector('.overlay');
   const items = document.querySelectorAll(itemSelector);
   const imgEl = document.createElement('img');
   imgEl.classList.add('gallery-img');
-  const scroll = Object(_calcScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
   items.forEach(item => {
     item.addEventListener('click', () => {
       imgEl.src = item.getAttribute('src');
       imgEl.alt = item.getAttribute('alt');
-      activateOverlay();
+      Object(_overlay__WEBPACK_IMPORTED_MODULE_0__["activateOverlay"])(imgEl);
     });
   });
-  closeOverlay();
-
-  function activateOverlay() {
-    overlay.classList.add('active');
-    document.body.style.overflowY = 'hidden';
-    document.body.style.marginRight = scroll + 'px';
-    overlay.appendChild(imgEl);
-  }
-
-  function closeOverlay() {
-    document.addEventListener('keydown', e => {
-      if (e.keyCode === 27) {
-        removeOverlay();
-      }
-    });
-    overlay.addEventListener('click', e => {
-      if (e.target == overlay) {
-        removeOverlay();
-      }
-    });
-
-    function removeOverlay() {
-      overlay.classList.remove('active');
-      document.body.style.overflowY = 'visible';
-      document.body.style.marginRight = '0px';
-      imgEl.remove();
-      overlay.innerHTML = '';
-    }
-  }
+  Object(_overlay__WEBPACK_IMPORTED_MODULE_0__["closeOverlay"])(imgEl);
 }
 
 /***/ }),
@@ -354,6 +347,152 @@ function mask(selector) {
 
 /***/ }),
 
+/***/ "./src/assets/js/modules/modal.js":
+/*!****************************************!*\
+  !*** ./src/assets/js/modules/modal.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return modal; });
+/* harmony import */ var _overlay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./overlay */ "./src/assets/js/modules/overlay.js");
+/* harmony import */ var _modalForm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modalForm.js */ "./src/assets/js/modules/modalForm.js");
+/* harmony import */ var _mask_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mask.js */ "./src/assets/js/modules/mask.js");
+
+
+
+function modal(triggers) {
+  const btns = document.querySelectorAll(triggers);
+  btns.forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector('.modal').style.display = 'flex';
+      Object(_overlay__WEBPACK_IMPORTED_MODULE_0__["activateOverlay"])();
+      Object(_mask_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.modal__input-tel');
+    });
+  });
+  Object(_modalForm_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+}
+
+/***/ }),
+
+/***/ "./src/assets/js/modules/modalForm.js":
+/*!********************************************!*\
+  !*** ./src/assets/js/modules/modalForm.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return modalForm; });
+function modalForm() {
+  const form = document.querySelectorAll('.modal-form');
+  const inputs = document.querySelectorAll('.modal-form input');
+  const message = {
+    loading: 'Загрузка...',
+    success: 'Спасибо! Скоро мы с вами свяжемся',
+    failure: 'Что-то пошло не так...'
+  };
+
+  const postData = async (url, data) => {
+    document.querySelector('.status').textContent = message.loading;
+    let res = await fetch(url, {
+      method: 'POST',
+      body: data
+    });
+    return await res.text();
+  };
+
+  const clearInputs = () => {
+    inputs.forEach(item => {
+      item.value = '';
+    });
+  };
+
+  form.forEach(item => {
+    item.addEventListener('submit', e => {
+      e.preventDefault();
+      let statusMessage = document.createElement('div');
+      statusMessage.classList.add('status');
+      item.appendChild(statusMessage);
+      const formData = new FormData(item);
+      postData('./server.php', formData).then(res => {
+        console.log(res);
+        statusMessage.textContent = message.success;
+      }).catch(() => {
+        statusMessage.textContent = message.failure;
+      }).finally(() => {
+        clearInputs();
+        setTimeout(() => {
+          document.querySelector('.overlay').classList.remove('active');
+          document.body.style.overflowY = 'visible';
+          document.body.style.marginRight = '0px';
+          document.querySelector('.modal').style.display = 'none';
+          statusMessage.remove();
+        }, 3000);
+      });
+    });
+  });
+}
+
+/***/ }),
+
+/***/ "./src/assets/js/modules/overlay.js":
+/*!******************************************!*\
+  !*** ./src/assets/js/modules/overlay.js ***!
+  \******************************************/
+/*! exports provided: activateOverlay, closeOverlay */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "activateOverlay", function() { return activateOverlay; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeOverlay", function() { return closeOverlay; });
+/* harmony import */ var _calcScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calcScroll.js */ "./src/assets/js/modules/calcScroll.js");
+
+function activateOverlay() {
+  let elem = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  const scroll = Object(_calcScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  const overlay = document.querySelector('.overlay');
+  overlay.classList.add('active');
+  document.body.style.overflowY = 'hidden';
+  document.body.style.marginRight = scroll + 'px';
+
+  if (elem != '') {
+    overlay.appendChild(elem);
+  }
+}
+function closeOverlay() {
+  let elem = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  const overlay = document.querySelector('.overlay');
+  document.addEventListener('keydown', e => {
+    if (e.keyCode === 27) {
+      removeOverlay();
+    }
+  });
+  overlay.addEventListener('click', e => {
+    if (e.target == overlay) {
+      removeOverlay();
+    }
+  });
+
+  function removeOverlay() {
+    overlay.classList.remove('active');
+    document.body.style.overflowY = 'visible';
+    document.body.style.marginRight = '0px';
+    document.querySelector('.modal').style.display = 'none';
+
+    if (elem != '') {
+      elem.remove();
+    }
+  }
+}
+
+/***/ }),
+
 /***/ "./src/assets/js/modules/tabs.js":
 /*!***************************************!*\
   !*** ./src/assets/js/modules/tabs.js ***!
@@ -400,47 +539,18 @@ function tabs(titleSelector, contentSelector) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return videoPopup; });
-/* harmony import */ var _calcScroll_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calcScroll.js */ "./src/assets/js/modules/calcScroll.js");
+/* harmony import */ var _overlay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./overlay */ "./src/assets/js/modules/overlay.js");
 
 function videoPopup(src, openBtn) {
-  const overlay = document.querySelector('.overlay');
   const openVideoBtn = document.querySelector(openBtn);
-  const scroll = Object(_calcScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
   const wrap = document.createElement('div');
   wrap.innerHTML = `
   <iframe class="liner-video__popup" width="1000" height="600" src="${src}" title="COSTA FIRENZE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   `;
   openVideoBtn.addEventListener('click', () => {
-    activateOverlay();
+    Object(_overlay__WEBPACK_IMPORTED_MODULE_0__["activateOverlay"])(wrap);
   });
-  closeOverlay();
-
-  function activateOverlay() {
-    overlay.classList.add('active');
-    document.body.style.overflowY = 'hidden';
-    document.body.style.marginRight = scroll + 'px';
-    overlay.appendChild(wrap);
-  }
-
-  function closeOverlay() {
-    document.addEventListener('keydown', e => {
-      if (e.keyCode === 27) {
-        removeOverlay();
-      }
-    });
-    overlay.addEventListener('click', e => {
-      if (e.target == overlay) {
-        removeOverlay();
-      }
-    });
-
-    function removeOverlay() {
-      overlay.classList.remove('active');
-      document.body.style.overflowY = 'visible';
-      document.body.style.marginRight = '0px';
-      wrap.remove();
-    }
-  }
+  Object(_overlay__WEBPACK_IMPORTED_MODULE_0__["closeOverlay"])(wrap);
 }
 
 /***/ })

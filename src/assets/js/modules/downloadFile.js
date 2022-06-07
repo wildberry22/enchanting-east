@@ -1,4 +1,5 @@
 export default function downloadFile (btnSelector, fileUrl, inputCheckSelector = '') {
+  const form = document.querySelector('.route-download__form')
   const input = document.querySelector(inputCheckSelector)
   const btn = document.querySelector(btnSelector)
 
@@ -9,13 +10,36 @@ export default function downloadFile (btnSelector, fileUrl, inputCheckSelector =
     })
   }
 
+
   btn.addEventListener('click', () => {
     download()
+    form.addEventListener('submit', e => {
+      e.preventDefault()
 
-    input.value = ''
-    btn.setAttribute("disabled", "disabled")
+      const formData = new FormData(form)
+
+       postData('./server.php', formData)
+                .then(res => {
+                  console.log(res)
+                })
+                .finally(() => {
+                  input.value = ''
+                })
+    })
+    
+    setTimeout(() => {
+      btn.setAttribute("disabled", "disabled")
+    })
   })
 
+
+  const postData = async (url, data) => {
+    let res = await fetch(url, {
+        method: 'POST',
+        body: data
+    })
+    return await res.text()
+  }
 
   function download() {
     const link = document.createElement('a')

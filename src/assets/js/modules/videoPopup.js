@@ -1,9 +1,7 @@
-import calcScroll from "./calcScroll.js"
+import {activateOverlay, closeOverlay} from "./overlay"
 
 export default function videoPopup(src, openBtn) {
-  const overlay = document.querySelector('.overlay')
   const openVideoBtn = document.querySelector(openBtn)
-  const scroll = calcScroll()
 
   const wrap = document.createElement('div')
   wrap.innerHTML = `
@@ -11,37 +9,10 @@ export default function videoPopup(src, openBtn) {
   `
 
   openVideoBtn.addEventListener('click', () => {
-    activateOverlay()
+    activateOverlay(wrap)
   })
+ 
+  closeOverlay(wrap)
 
-  closeOverlay()
-
-  function activateOverlay() {
-    overlay.classList.add('active')
-    document.body.style.overflowY = 'hidden'
-    document.body.style.marginRight = scroll + 'px'
-    overlay.appendChild(wrap)
-  }
-
-  function closeOverlay() {
-    document.addEventListener('keydown', e => {
-      if(e.keyCode === 27) {
-        removeOverlay()
-      } 
-    })
-
-    overlay.addEventListener('click', e => {
-      if (e.target == overlay) {
-        removeOverlay()
-      }
-    })
-
-    function removeOverlay() {
-      overlay.classList.remove('active')
-      document.body.style.overflowY = 'visible'
-      document.body.style.marginRight = '0px'
-      wrap.remove()
-    }
-  }
 
 }

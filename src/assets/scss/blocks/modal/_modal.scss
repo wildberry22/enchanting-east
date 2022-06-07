@@ -1,10 +1,11 @@
 .modal {
   background: #fff;
-  min-width: 600px;
+  min-width: 500px;
   min-height: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   &__text {
     max-width: 317px;
     font-family: var(--playfair-display-font);
@@ -12,9 +13,28 @@
     margin-bottom: 10px;
   }
   &__input {
+    width: 200px;
+    height: 40px;
+    border: 1px solid #0061BF;
+    padding: 10px;
+    margin: 0 auto;
+    &:focus {
+      outline: 1px solid #0061BF;
+    }
     &-wrapper {
       display: flex;
       flex-direction: column;
+    }
+    &-label {
+      margin-bottom: 5px;
+    }
+  }
+  &__btn {
+    margin-top: 30px;
+    width: 200px;
+    font-size: 18px;
+    span {
+      padding: 7px 30px;
     }
   }
 }

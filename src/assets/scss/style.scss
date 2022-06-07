@@ -95,7 +95,14 @@ body {
   animation: zoomIn 0.5s forwards;
   z-index: 20;
 }
-
+.status {
+  font-size: 18px;
+  max-width: 300px;
+  color: var(--main-color);
+  font-weight: var(--font-bold);
+  margin: 20px auto 0;
+  text-align: center;
+}
 
 
 

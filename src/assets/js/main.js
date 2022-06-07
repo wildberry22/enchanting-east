@@ -4,6 +4,7 @@ import gallery from "./modules/gallery.js";
 import mask from "./modules/mask.js";
 import downloadFile from './modules/downloadFile.js'
 import videoPopup from "./modules/videoPopup.js";
+import modal from "./modules/modal.js";
 
 // scroll animations for animate.css
 new WOW().init()
@@ -19,4 +20,6 @@ mask('.route-download__input')
 downloadFile('.route-download__btn', 'download-files/1.pdf', '.route-download__input')
 // liner video popup
 videoPopup('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn')
+// modal window
+modal('[data-open-modal]')
 
