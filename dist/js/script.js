@@ -102,6 +102,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/downloadFile.js */ "./src/assets/js/modules/downloadFile.js");
 /* harmony import */ var _modules_videoPopup_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/videoPopup.js */ "./src/assets/js/modules/videoPopup.js");
 /* harmony import */ var _modules_modal_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modal.js */ "./src/assets/js/modules/modal.js");
+/* harmony import */ var _modules_toTop_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/toTop.js */ "./src/assets/js/modules/toTop.js");
+
 
 
 
@@ -124,7 +126,9 @@ Object(_modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__["default"])('.route
 
 Object(_modules_videoPopup_js__WEBPACK_IMPORTED_MODULE_5__["default"])('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn'); // modal window
 
-Object(_modules_modal_js__WEBPACK_IMPORTED_MODULE_6__["default"])('[data-open-modal]');
+Object(_modules_modal_js__WEBPACK_IMPORTED_MODULE_6__["default"])('[data-open-modal]'); // to top arrow
+
+Object(_modules_toTop_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
 
 /***/ }),
 
@@ -524,6 +528,31 @@ function tabs(titleSelector, contentSelector) {
   function removeActiveClass() {
     titles.forEach(title => title.classList.remove(activeClass));
     contents.forEach(content => content.classList.remove(activeClass));
+  }
+}
+
+/***/ }),
+
+/***/ "./src/assets/js/modules/toTop.js":
+/*!****************************************!*\
+  !*** ./src/assets/js/modules/toTop.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return toTop; });
+function toTop() {
+  const btn = document.querySelector('.to-top');
+  window.addEventListener('scroll', () => scrollFunction());
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 2700 || document.documentElement.scrollTop > 2700) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
   }
 }
 

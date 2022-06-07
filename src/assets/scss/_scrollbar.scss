@@ -1,3 +1,7 @@
+* {
+  scrollbar-color: hsl(229, 100%, 82%) var(--light-color);
+}
+
 body {
   &::-webkit-scrollbar {
     width: 14px;

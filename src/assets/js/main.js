@@ -5,6 +5,7 @@ import mask from "./modules/mask.js";
 import downloadFile from './modules/downloadFile.js'
 import videoPopup from "./modules/videoPopup.js";
 import modal from "./modules/modal.js";
+import toTop from "./modules/toTop.js";
 
 // scroll animations for animate.css
 new WOW().init()
@@ -22,4 +23,6 @@ downloadFile('.route-download__btn', 'download-files/1.pdf', '.route-download__i
 videoPopup('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn')
 // modal window
 modal('[data-open-modal]')
+// to top arrow
+toTop()
 
