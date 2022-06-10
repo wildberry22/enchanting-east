@@ -103,6 +103,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_videoPopup_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/videoPopup.js */ "./src/assets/js/modules/videoPopup.js");
 /* harmony import */ var _modules_modal_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modal.js */ "./src/assets/js/modules/modal.js");
 /* harmony import */ var _modules_toTop_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/toTop.js */ "./src/assets/js/modules/toTop.js");
+/* harmony import */ var _modules_adaptiveAnimate_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/adaptiveAnimate.js */ "./src/assets/js/modules/adaptiveAnimate.js");
 
 
 
@@ -110,25 +111,63 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // scroll animations for animate.css
 
-new WOW().init(); // scroll animations for elements with ".js-scroll"
 
-Object(_modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])(); // tabs
+/* 
+// scroll animations for animate.css
+new WOW().init()
+// scroll animations for elements with ".js-scroll"
+animateWithScroll()
+// tabs
+tabs('.route-info__title-item', '.route-info__content-item')
+// gallery 
+gallery('.gallery-watch')
+// phone mask
+mask('.route-download__input')
+// download pdf file second section
+downloadFile('.route-download__btn', 'download-files/1.pdf', '.route-download__input')
+// liner video popup
+videoPopup('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn')
+// modal window
+modal('[data-open-modal]')
+// to top arrow
+toTop() */
 
-Object(_modules_tabs_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.route-info__title-item', '.route-info__content-item'); // gallery 
+Object(_modules_adaptiveAnimate_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
 
-Object(_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.gallery-watch'); // phone mask
+/***/ }),
 
-Object(_modules_mask_js__WEBPACK_IMPORTED_MODULE_3__["default"])('.route-download__input'); // download pdf file second section
+/***/ "./src/assets/js/modules/adaptiveAnimate.js":
+/*!**************************************************!*\
+  !*** ./src/assets/js/modules/adaptiveAnimate.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-Object(_modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__["default"])('.route-download__btn', 'download-files/1.pdf', '.route-download__input'); // liner video popup
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return adaptiveAnimate; });
+function adaptiveAnimate() {
+  const screenWidth = window.screen.width;
 
-Object(_modules_videoPopup_js__WEBPACK_IMPORTED_MODULE_5__["default"])('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn'); // modal window
+  if (screenWidth <= 900) {
+    header();
+  }
 
-Object(_modules_modal_js__WEBPACK_IMPORTED_MODULE_6__["default"])('[data-open-modal]'); // to top arrow
-
-Object(_modules_toTop_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  function header() {
+    const header = document.querySelector('.header');
+    header.querySelectorAll('.animate__delay-2s').forEach(item => {
+      item.classList.add('animate__delay-1-3s');
+      item.classList.remove('animate__delay-2s');
+    });
+    header.querySelector('.animate__delay-2-4s').classList.add('animate__delay-1-6s');
+    header.querySelector('.animate__delay-2-4s').classList.remove('animate__delay-2-4s');
+    header.querySelector('.animate__delay-2-7s').classList.add('animate__delay-1-9s');
+    header.querySelector('.animate__delay-2-7s').classList.remove('animate__delay-2-7s');
+    header.querySelector('.animate__delay-3s').classList.add('animate__delay-2-2s');
+    header.querySelector('.animate__delay-3s').classList.remove('animate__delay-3s');
+  }
+}
 
 /***/ }),
 

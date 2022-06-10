@@ -6,7 +6,8 @@ import downloadFile from './modules/downloadFile.js'
 import videoPopup from "./modules/videoPopup.js";
 import modal from "./modules/modal.js";
 import toTop from "./modules/toTop.js";
-
+import adaptiveAnimate from "./modules/adaptiveAnimate.js";
+/* 
 // scroll animations for animate.css
 new WOW().init()
 // scroll animations for elements with ".js-scroll"
@@ -24,5 +25,7 @@ videoPopup('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn')
 // modal window
 modal('[data-open-modal]')
 // to top arrow
-toTop()
+toTop() */
+
+adaptiveAnimate()
 
