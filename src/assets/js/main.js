@@ -7,6 +7,7 @@ import videoPopup from "./modules/videoPopup.js";
 import modal from "./modules/modal.js";
 import toTop from "./modules/toTop.js";
 import adaptiveAnimate from "./modules/adaptiveAnimate.js";
+import mobileNav from "./modules/mobileNav.js";
 /* 
 // scroll animations for animate.css
 new WOW().init()
@@ -28,4 +29,5 @@ modal('[data-open-modal]')
 toTop() */
 
 adaptiveAnimate()
+mobileNav()
 

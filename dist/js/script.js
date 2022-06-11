@@ -104,6 +104,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modal_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/modal.js */ "./src/assets/js/modules/modal.js");
 /* harmony import */ var _modules_toTop_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/toTop.js */ "./src/assets/js/modules/toTop.js");
 /* harmony import */ var _modules_adaptiveAnimate_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/adaptiveAnimate.js */ "./src/assets/js/modules/adaptiveAnimate.js");
+/* harmony import */ var _modules_mobileNav_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/mobileNav.js */ "./src/assets/js/modules/mobileNav.js");
+
 
 
 
@@ -134,6 +136,7 @@ modal('[data-open-modal]')
 toTop() */
 
 Object(_modules_adaptiveAnimate_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
+Object(_modules_mobileNav_js__WEBPACK_IMPORTED_MODULE_9__["default"])();
 
 /***/ }),
 
@@ -387,6 +390,42 @@ function mask(selector) {
   });
 }
 ;
+
+/***/ }),
+
+/***/ "./src/assets/js/modules/mobileNav.js":
+/*!********************************************!*\
+  !*** ./src/assets/js/modules/mobileNav.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return mobileNav; });
+function mobileNav() {
+  const navWrap = document.querySelector('.header-nav__wrapper');
+  const navItem = navWrap.querySelectorAll('.header-nav__list-link');
+  const socialWrap = document.querySelector('.header-social');
+  const openBtn = document.querySelector('.menu-btn');
+  const closeBtn = document.querySelector('.close-menu__btn');
+  openBtn.addEventListener('click', e => {
+    e.preventDefault();
+    navWrap.classList.add('active');
+    socialWrap.classList.add('active');
+  });
+  closeBtn.addEventListener('click', e => {
+    e.preventDefault();
+    navWrap.classList.remove('active');
+    socialWrap.classList.remove('active');
+  });
+  navItem.forEach(item => {
+    item.addEventListener('click', () => {
+      navWrap.classList.remove('active');
+      socialWrap.classList.remove('active');
+    });
+  });
+}
 
 /***/ }),
 
