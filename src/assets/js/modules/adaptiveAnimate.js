@@ -4,12 +4,7 @@ export default function adaptiveAnimate() {
   if(screenWidth <= 900) {
     header()
   }
-
   
-  
-
-
-
   function header() {
     const header = document.querySelector('.header')
 

@@ -8,7 +8,7 @@ import modal from "./modules/modal.js";
 import toTop from "./modules/toTop.js";
 import adaptiveAnimate from "./modules/adaptiveAnimate.js";
 import mobileNav from "./modules/mobileNav.js";
-/* 
+
 // scroll animations for animate.css
 new WOW().init()
 // scroll animations for elements with ".js-scroll"
@@ -22,11 +22,11 @@ mask('.route-download__input')
 // download pdf file second section
 downloadFile('.route-download__btn', 'download-files/1.pdf', '.route-download__input')
 // liner video popup
-videoPopup('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn')
+/* videoPopup('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn') */
 // modal window
-modal('[data-open-modal]')
+/* modal('[data-open-modal]') */
 // to top arrow
-toTop() */
+toTop()
 
 adaptiveAnimate()
 mobileNav()

@@ -4,10 +4,10 @@
   &::after {
     content: '';
     position: absolute;
-    top: -185px;
-    right: -190px;
+    top: -130px;
+    right: 0px;
     background: url(../img/route-section/bg.svg) center center/cover no-repeat;
-    width: 400px;
+    width: 208px;
     height: 400px;
   }
   &__subtitle{
@@ -23,6 +23,9 @@
       justify-content: space-between;
       align-self: flex-start;
       margin-bottom: 55px;
+    }
+    &__img {
+      display: none;
     }
     &__dot{
       position: absolute;

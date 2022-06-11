@@ -13,6 +13,4 @@ export default function videoPopup(src, openBtn) {
   })
  
   closeOverlay(wrap)
-
-
 }

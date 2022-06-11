@@ -114,27 +114,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // scroll animations for animate.css
 
-/* 
-// scroll animations for animate.css
-new WOW().init()
-// scroll animations for elements with ".js-scroll"
-animateWithScroll()
-// tabs
-tabs('.route-info__title-item', '.route-info__content-item')
-// gallery 
-gallery('.gallery-watch')
-// phone mask
-mask('.route-download__input')
-// download pdf file second section
-downloadFile('.route-download__btn', 'download-files/1.pdf', '.route-download__input')
-// liner video popup
-videoPopup('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn')
+new WOW().init(); // scroll animations for elements with ".js-scroll"
+
+Object(_modules_animateWithScroll_js__WEBPACK_IMPORTED_MODULE_0__["default"])(); // tabs
+
+Object(_modules_tabs_js__WEBPACK_IMPORTED_MODULE_1__["default"])('.route-info__title-item', '.route-info__content-item'); // gallery 
+
+Object(_modules_gallery_js__WEBPACK_IMPORTED_MODULE_2__["default"])('.gallery-watch'); // phone mask
+
+Object(_modules_mask_js__WEBPACK_IMPORTED_MODULE_3__["default"])('.route-download__input'); // download pdf file second section
+
+Object(_modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__["default"])('.route-download__btn', 'download-files/1.pdf', '.route-download__input'); // liner video popup
+
+/* videoPopup('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn') */
 // modal window
-modal('[data-open-modal]')
-// to top arrow
-toTop() */
 
+/* modal('[data-open-modal]') */
+// to top arrow
+
+Object(_modules_toTop_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
 Object(_modules_adaptiveAnimate_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
 Object(_modules_mobileNav_js__WEBPACK_IMPORTED_MODULE_9__["default"])();
 
