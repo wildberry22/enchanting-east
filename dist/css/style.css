@@ -5185,9 +5185,26 @@ body {
     height: auto; }
   .route-info__wrapper {
     height: auto;
-    flex-direction: column; } }
+    flex-direction: column; }
+  .route-info__title-list {
+    height: 300px;
+    flex-wrap: wrap;
+    width: 100%;
+    border-right: none; }
+  .route-info__title-item {
+    width: 50%; }
+  .route-info__title-itemwrap.last {
+    border-bottom: 1px solid var(--main-color); }
+  .route-info__title-itemwrap::after {
+    transform: translateY(-50%) rotate(45deg); } }
 
 @media (max-width: 600px) {
+  .route {
+    padding: 60px 0; }
+    .route::after {
+      width: 115px;
+      height: 220px;
+      top: -80px; }
   .route-map {
     display: none; }
   .route-map__img {
@@ -5197,3 +5214,106 @@ body {
     margin-bottom: 20px; }
   .route-map__descr-names {
     text-align: center; } }
+
+@media (max-width: 568px) {
+  .route-download__input {
+    margin-right: 10px; }
+  .route-download__btn {
+    padding: 7px; } }
+
+@media (max-width: 480px) {
+  .route {
+    padding: 40px 0; }
+    .route::after {
+      width: 78px;
+      height: 150px;
+      top: -52px; }
+  .route-map__wrapper {
+    margin-bottom: 30px; }
+  .route-info__title-itemwrap::after,
+  .route-info__title-name {
+    display: none; }
+  .route-info__title-itemwrap {
+    padding: 14px 0;
+    justify-content: center; }
+  .route-info__title-list {
+    height: 250px; }
+  .route-info__title-item {
+    padding: 0 5px; }
+  .route-info__item-descr {
+    padding: 20px 10px 5px 10px; }
+  .route-info__item-photos {
+    margin: 0 10px 10px 10px; }
+  .route-info__item-photo,
+  .route-info__item-photo img {
+    height: 150px; }
+  .route-info__item-text p {
+    margin-bottom: 15px; }
+  .route-download__text {
+    font-size: var(--fz-4); }
+  .route-download form {
+    flex-wrap: wrap; }
+  .route-download__input {
+    --fz-4: 18px;
+    width: 240px;
+    margin-right: 0;
+    margin-bottom: 10px; }
+    .route-download__input::placeholder {
+      font-size: 16px; } }
+
+@media (max-width: 385px) {
+  .route-info__title-list {
+    height: 210px; }
+  .route-info__title-itemwrap {
+    padding: 10px 0; }
+  .route-map__descr-names {
+    font-size: var(--fz-main-text); }
+  .route-map__wrapper {
+    margin-bottom: 20px; }
+  .route-info {
+    margin-bottom: 25px; }
+  .route-download__btn {
+    padding: 5px; }
+    .route-download__btn span {
+      font-size: 18px;
+      padding: 5px 22px;
+      width: 180px; } }
+
+@media (max-width: 600px) {
+  :root {
+    --fz-title: 32px; }
+  .title {
+    line-height: 38px;
+    padding-left: 40px; }
+    .title::before {
+      top: 7px;
+      width: 25px;
+      height: 25px; }
+    .title::after {
+      left: 8px;
+      top: 15px;
+      width: 13px;
+      height: 13px; }
+  .subtitle {
+    padding-left: 40px; } }
+
+@media (max-width: 480px) {
+  :root {
+    --fz-title: 26px; }
+  .title {
+    line-height: 28px;
+    padding-left: 28px; }
+    .title::before {
+      top: 4px;
+      width: 17px;
+      height: 17px; }
+    .title::after {
+      left: 6px;
+      top: 10px;
+      width: 9px;
+      height: 9px; }
+  .subtitle {
+    --fz-subtitle-btn: 18px;
+    line-height: 20px;
+    padding-left: 28px;
+    margin-bottom: 30px; } }

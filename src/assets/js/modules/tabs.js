@@ -24,3 +24,5 @@ export default function tabs(titleSelector, contentSelector) {
   }
 
 }
+
+/* 480 */

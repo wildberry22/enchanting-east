@@ -151,10 +151,33 @@
     height: auto;
     flex-direction: column;
   }
+  .route-info__title-list {
+    height: 300px;
+    flex-wrap: wrap;
+    width: 100%;
+    border-right: none;
+  }
+  .route-info__title-item {
+    width: 50%;
+  }
+  .route-info__title-itemwrap.last {
+    border-bottom: 1px solid var(--main-color);
+  }
+  .route-info__title-itemwrap::after {
+    transform: translateY(-50%) rotate(45deg);
+  }
 }
 
 
 @media (max-width: 600px) {  // 600 - 568
+  .route {
+    padding: 60px 0;
+    &::after {
+      width: 115px;
+      height: 220px;
+      top: -80px;
+    } 
+  }
   .route-map {
     display: none;
   }
@@ -168,3 +191,100 @@
     text-align: center;
   }
 }
+
+
+@media (max-width: 568px) {  // 568 - 480
+  .route-download__input {
+    margin-right: 10px;
+  }
+  .route-download__btn {
+    padding: 7px;
+  }
+}
+
+
+@media (max-width: 480px) {  // 480 - 385
+  .route {
+    padding: 40px 0;
+    &::after {
+      width: 78px;
+      height: 150px;
+      top: -52px;
+    }
+  }
+  .route-map__wrapper {
+    margin-bottom: 30px;
+  }
+  .route-info__title-itemwrap::after,
+  .route-info__title-name {
+    display: none;
+  }
+  .route-info__title-itemwrap {
+    padding: 14px 0;
+    justify-content: center;
+  }
+  .route-info__title-list {
+    height: 250px;
+  }
+  .route-info__title-item {
+    padding: 0 5px;
+  }
+  .route-info__item-descr {
+    padding: 20px 10px 5px 10px;
+  }
+  .route-info__item-photos {
+    margin: 0 10px 10px 10px;
+  }
+  .route-info__item-photo, 
+  .route-info__item-photo img {
+    height: 150px;
+  }
+  .route-info__item-text p {
+    margin-bottom: 15px;
+  }
+  .route-download__text {
+    font-size: var(--fz-4);
+  }
+  .route-download form{
+    flex-wrap: wrap;
+  }
+  .route-download__input {
+    --fz-4: 18px;
+
+    width: 240px;
+    margin-right: 0;
+    margin-bottom: 10px;
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
+}
+
+
+@media (max-width: 385px) {  // 385 - 320
+  .route-info__title-list {
+    height: 210px;
+  }
+  .route-info__title-itemwrap {
+    padding: 10px 0;
+  }
+  .route-map__descr-names {
+    font-size: var(--fz-main-text);
+  }
+  .route-map__wrapper {
+    margin-bottom: 20px;
+  }
+  .route-info {
+    margin-bottom: 25px;
+  }
+  .route-download__btn {
+    padding: 5px;
+    span {
+      font-size: 18px;
+      padding: 5px 22px;
+      width: 180px;
+    }
+  }
+}
+
+

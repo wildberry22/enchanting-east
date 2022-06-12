@@ -608,6 +608,7 @@ function tabs(titleSelector, contentSelector) {
     contents.forEach(content => content.classList.remove(activeClass));
   }
 }
+/* 480 */
 
 /***/ }),
 
