@@ -5,19 +5,21 @@
     content: '';
     position: absolute;
     bottom: -75px;
-    left: -130px;
-    width: 342px;
+    left: 1px;
+    width: 205px;
     height: 342px;
-    background: url(../img/benefits-section/bg.svg) center center/cover no-repeat;
+    background: url(../img/benefits-section/bg-1.svg) center center/cover no-repeat;
+    z-index: -1;
   }
   &::after {
     content: '';
     position: absolute;
     top: -5px;
-    right: -100px;
-    width: 397px;
-    height: 397px;
-    background: url(../img/benefits-section/bg.svg) center center/cover no-repeat;
+    right: 0;
+    width: 239px;
+    height: 322px;
+    background: url(../img/benefits-section/bg-2.svg) center center/cover no-repeat;
+    z-index: -1;
   }
   &-wrapper{
     margin-top: 70px;
@@ -40,6 +42,9 @@
           display: none;
         }
         &::after {
+          display: none;
+        }
+        .benefits-list__item-wrapper::after {
           display: none;
         }
       }

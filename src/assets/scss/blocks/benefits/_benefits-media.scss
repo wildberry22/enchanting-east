@@ -1,0 +1,127 @@
+/* 1440 / 1280 / 1024 / 900 / 768 / 568 / 480 / 385 / 320 */
+/* 720 / 670 / 576 */
+
+
+@media (max-width: 1280px) {  // 1280 - 1024
+  .benefits-list__item {
+    max-width: 219px;
+    min-height: 204px;
+    padding: 35px 20px 20px;
+  } 
+  .benefits-list__item-wrapper{
+    &::before {
+      top: -58px;
+    }
+    &::after {
+      top: 48px;
+    }
+  }
+  .benefits-list {
+    justify-content: center;
+  }
+} 
+
+
+@media (max-width: 1024px) {  // 1024 - 900
+  .benefits {
+    padding: 60px 0;
+  }
+  .benefits-list {
+    flex-wrap: wrap;
+  }
+  .benefits-list__item-wrapper{
+    &::after {
+      right: -60px;
+    }
+  }
+  .benefits-list__item {
+    max-width: 269px;
+    min-height: 186px;
+    margin: 0 20px;
+    &::after {
+      right: -48px;
+    }
+    &::before {
+      right: -40px;
+    }
+    &:nth-child(2) {
+      &::after,
+      &::before {
+        display: none;
+      }
+      .benefits-list__item-wrapper::after {
+        display: none;
+      }
+    }
+  }
+} 
+
+@media (max-width: 768px) {  // 768 - 568 
+  .benefits{
+    padding: 50px 0;
+    &::before {
+      bottom: -27px;
+      width: 158px;
+      height: 258px;
+    }
+    &::after {
+      top: 13px;
+      width: 188px;
+      height: 251px;
+    } 
+  }
+  .benefits-wrapper {
+    margin-top: 60px;
+  }
+  .benefits-list__item {
+    max-width: 245px;
+    min-height: 205px;
+    margin: 0;
+    &::after {
+      right: -28px;
+    }
+    &::before {
+      right: -20px;
+    }
+  }
+  .benefits-list__item-wrapper{
+    &::after {
+      right: -40px;
+    }
+  }
+}
+
+
+@media (max-width: 568px) {  // 568 - 480
+  .benefits {
+    padding: 40px 0;
+    &::before {
+      bottom: 119px;
+      width: 138px;
+      height: 226px;
+    }
+  }
+  .benefits-wrapper {
+    margin-top: 50px;
+  }
+  .benefits-list__item-wrapper{
+    &::after {
+      display: none;
+    }
+  }
+  .benefits-list__item {
+    max-width: 261px;
+    min-height: 190px;
+    &::after {
+      display: none;
+    }
+    &::before {
+      display: none;
+    }
+    &::after {
+      top: 24px;
+      width: 161px;
+      height: 218px;
+    }
+  }
+}
