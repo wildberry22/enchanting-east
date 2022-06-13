@@ -1,5 +1,5 @@
 .testimonials {
-  padding: 10px 0 80px;
+  padding: 0 0 100px;
   &-subtitle {
     margin-bottom: 50px;
   }
@@ -8,8 +8,23 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 40px;
+    padding-bottom: 3px;
     margin-bottom: 50px;
+    width: 100%;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: transparent;
+      border: 3px solid var(--white);
+      border-radius: 20px;
+    }
+    &::-webkit-scrollbar-thumb { background: hsl(229, 100%, 82%); }
+    &::-webkit-scrollbar-thumb:hover { background: hsl(229, 100%, 77%); }
     &__item {
+      min-width: 360px;
       flex: 1;
       padding: 30px;
       border: 1px solid;

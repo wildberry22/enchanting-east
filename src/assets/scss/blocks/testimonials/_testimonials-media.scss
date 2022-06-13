@@ -1,0 +1,57 @@
+/* 1440 / 1280 / 1024 / 900 / 768 / 568 / 480 / 385 / 320 */
+/* 720 / 670 / 576 */
+
+
+@media (max-width: 1200px) {  // 1200 - 1024
+  .testimonials-list {
+    gap: 20px;
+  }
+  .testimonials-list__item-text {
+    padding: 20px;
+  }
+  .testimonials-list__item {
+    min-width: 320px;
+    padding: 30px;
+  }
+}
+
+
+@media (max-width: 900px) {  // 900 - 768
+  .testimonials {
+    padding-bottom: 70px;
+  }
+  .testimonials-list {
+    margin-bottom: 40px;
+  }
+}
+
+
+@media (max-width: 568px) {  // 568 - 480
+  .testimonials {
+    padding-bottom: 50px;
+  }
+  .testimonials-subtitle {
+    margin-bottom: 30px;
+  }
+  .testimonials-book__text {
+    font-size: var(--fz-3);
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 480px) {  // 480 - 385
+  .testimonials-book__btn {
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 4px 7px;
+  }
+  
+}
+
+@media (max-width: 385px) {  // 385 - 320
+  .testimonials-list__item {
+    min-width: 290px;
+    padding: 20px 20px 30px;
+  }
+  
+}

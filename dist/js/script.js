@@ -128,11 +128,9 @@ Object(_modules_mask_js__WEBPACK_IMPORTED_MODULE_3__["default"])('.route-downloa
 
 Object(_modules_downloadFile_js__WEBPACK_IMPORTED_MODULE_4__["default"])('.route-download__btn', 'download-files/1.pdf', '.route-download__input'); // liner video popup
 
-/* videoPopup('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn') */
-// modal window
+Object(_modules_videoPopup_js__WEBPACK_IMPORTED_MODULE_5__["default"])('https://www.youtube.com/embed/85a0e62bP2E', '.liner-video__btn'); // modal window
 
-/* modal('[data-open-modal]') */
-// to top arrow
+Object(_modules_modal_js__WEBPACK_IMPORTED_MODULE_6__["default"])('[data-open-modal]'); // to top arrow
 
 Object(_modules_toTop_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
 Object(_modules_adaptiveAnimate_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
@@ -181,11 +179,13 @@ function adaptiveAnimate() {
       item.classList.add('animate__fadeInLeft');
       item.classList.remove('animate__fadeInUp');
     });
-    benefits.querySelector('.benefits-list__item.animate__delay-1s').classList.add('animate__delay-0-7s');
+    benefits.querySelector('.benefits-list__item.animate__delay-0-7s').classList.add('animate__delay-0-5s');
+    benefits.querySelector('.benefits-list__item.animate__delay-0-7s').classList.remove('animate__delay-0-7s');
+    benefits.querySelector('.benefits-list__item.animate__delay-1s').classList.add('animate__delay-0-5s');
     benefits.querySelector('.benefits-list__item.animate__delay-1s').classList.remove('animate__delay-1s');
-    benefits.querySelector('.benefits-list__item.animate__delay-1-3s').classList.add('animate__delay-0-7s');
+    benefits.querySelector('.benefits-list__item.animate__delay-1-3s').classList.add('animate__delay-0-5s');
     benefits.querySelector('.benefits-list__item.animate__delay-1-3s').classList.remove('animate__delay-1-3s');
-    benefits.querySelector('.benefits-list__item.animate__delay-1-6s').classList.add('animate__delay-0-7s');
+    benefits.querySelector('.benefits-list__item.animate__delay-1-6s').classList.add('animate__delay-0-5s');
     benefits.querySelector('.benefits-list__item.animate__delay-1-6s').classList.remove('animate__delay-1-6s');
   }
 }
@@ -671,7 +671,7 @@ function videoPopup(src, openBtn) {
   const openVideoBtn = document.querySelector(openBtn);
   const wrap = document.createElement('div');
   wrap.innerHTML = `
-  <iframe class="liner-video__popup" width="1000" height="600" src="${src}" title="COSTA FIRENZE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe class="liner-video__popup" src="${src}" title="COSTA FIRENZE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   `;
   openVideoBtn.addEventListener('click', () => {
     Object(_overlay__WEBPACK_IMPORTED_MODULE_0__["activateOverlay"])(wrap);

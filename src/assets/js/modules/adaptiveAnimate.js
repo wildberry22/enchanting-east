@@ -36,14 +36,18 @@ export default function adaptiveAnimate() {
       item.classList.remove('animate__fadeInUp')
     })
 
-    benefits.querySelector('.benefits-list__item.animate__delay-1s').classList.add('animate__delay-0-7s')
+    benefits.querySelector('.benefits-list__item.animate__delay-0-7s').classList.add('animate__delay-0-5s')
+    benefits.querySelector('.benefits-list__item.animate__delay-0-7s').classList.remove('animate__delay-0-7s')
+
+    benefits.querySelector('.benefits-list__item.animate__delay-1s').classList.add('animate__delay-0-5s')
     benefits.querySelector('.benefits-list__item.animate__delay-1s').classList.remove('animate__delay-1s')
 
-    benefits.querySelector('.benefits-list__item.animate__delay-1-3s').classList.add('animate__delay-0-7s')
+    benefits.querySelector('.benefits-list__item.animate__delay-1-3s').classList.add('animate__delay-0-5s')
     benefits.querySelector('.benefits-list__item.animate__delay-1-3s').classList.remove('animate__delay-1-3s')
 
-    benefits.querySelector('.benefits-list__item.animate__delay-1-6s').classList.add('animate__delay-0-7s')
+    benefits.querySelector('.benefits-list__item.animate__delay-1-6s').classList.add('animate__delay-0-5s')
     benefits.querySelector('.benefits-list__item.animate__delay-1-6s').classList.remove('animate__delay-1-6s')
   }
+
 
 }

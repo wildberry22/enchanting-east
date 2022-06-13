@@ -1,0 +1,16 @@
+/* 1440 / 1280 / 1024 / 900 / 768 / 568 / 480 / 385 / 320 */
+/* 720 / 670 / 576 */
+
+
+@media (max-width: 568px) {  // 568 - 480
+  .modal {
+    min-width: 300px;
+    min-height: 400px;
+  }
+  .modal__text {
+    max-width: 260px;
+  }
+  .modal__btn {
+    margin-top: 20px;
+  }
+}

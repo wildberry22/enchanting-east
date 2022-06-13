@@ -1,0 +1,142 @@
+/* 1440 / 1280 / 1024 / 900 / 768 / 568 / 480 / 385 / 320 */
+/* 720 / 670 / 576 */
+
+
+@media (max-width: 1280px) {  // 1280 - 1024
+  .coordinator-wrapper {
+    gap: 40px;
+  }
+  .coordinator-descr__about {
+    padding-bottom: 20px;
+    margin-bottom: 55px;
+  }
+  .coordinator-descr__numbers::before {
+    display: none;
+  }
+  .coordinator-descr__numbers {
+    gap: 50px;
+    justify-content: space-around;
+  }
+}
+
+
+@media (max-width: 1024px) {  // 1024 - 900
+  .coordinator-img img {
+    width: 375px;
+    height: 450px;
+  }
+  .coordinator-descr__numbers {
+    gap: 30px;
+    justify-content: space-between;
+  }
+  .coordinator-descr__about {
+    padding-bottom: 5px;
+    margin-bottom: 45px;
+  }
+}
+
+
+@media (max-width: 900px) {  // 900 - 768
+  .coordinator {
+    padding: 0 0 80px;
+  }
+  .coordinator-img {
+    padding: 0;
+    border: none;
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+  .coordinator-wrapper {
+    gap: 20px;
+  }
+  .coordinator-img img {
+    width: 340px;
+  }
+  .coordinator-descr__about {
+    padding-bottom: 0px;
+    margin-bottom: 35px;
+  }
+  .coordinator-descr__numbers {
+    gap: 15px;
+  }
+}
+
+
+@media (max-width: 768px) {  // 768 - 568
+  .coordinator-wrapper {
+    flex-wrap: wrap;
+  }
+  .coordinator-img {
+    margin: 0 auto;
+    padding: 20px 30px 20px 20px;
+    border: 1px solid var(--yellow-color);
+    &::before,
+    &::after {
+      display: block;
+    }
+    img {
+      width: 400px;
+    }
+  }
+  .coordinator-descr__numbers {
+    justify-content: space-around;
+  }
+  .coordinator-descr__about {
+    margin-bottom: 45px;
+  }
+}
+
+
+@media (max-width: 568px) {  // 568 - 480
+  .coordinator {
+    padding: 0 0 60px;
+  }
+  .coordinator-img img {
+    width: 340px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {  // 480 - 400
+  .coordinator-img {
+    padding: 15px;
+    &::before,
+    &::after {
+      display: none;
+    }
+    img {
+      width: 320px;
+    }
+  }
+  .coordinator-descr__numbers {
+    gap: 13px;
+  }
+}
+
+@media (max-width: 400px) {  // 400 - 320
+  .coordinator-img {
+    padding: 5px 5px 2px;
+    img {
+      width: 280px;
+      height: 350px;
+    }
+  }
+  .coordinator-descr__about-pos {
+    margin-bottom: 10px;
+  }
+  .coordinator-descr__numbers-item {
+    text-align: center;
+    max-width: 90px;
+  }
+  .coordinator-descr__numbers-numbg {
+    top: -21px;
+    font-size: 50px;
+    line-height: 58px;
+    left: 30px;
+  }
+  .coordinator-descr__about {
+    margin-bottom: 30px;
+  }
+}

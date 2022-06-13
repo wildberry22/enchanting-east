@@ -91,7 +91,8 @@ body {
   pointer-events: all;
 }
 .gallery-img {
-  max-width: 1000px;
+  max-width: 90vmin;
+  max-height: 95vh;
   animation: zoomIn 0.5s forwards;
   z-index: 20;
 }

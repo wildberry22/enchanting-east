@@ -23,9 +23,6 @@
 
 
 @media (max-width: 1024px) {  // 1024 - 900
-  .benefits {
-    padding: 60px 0;
-  }
   .benefits-list {
     flex-wrap: wrap;
   }
@@ -56,9 +53,16 @@
   }
 } 
 
+
+@media (max-width: 900px) {  // 900 - 768
+  .benefits{
+    padding: 0 0 80px;
+  }
+}
+
+
 @media (max-width: 768px) {  // 768 - 568 
   .benefits{
-    padding: 50px 0;
     &::before {
       bottom: -27px;
       width: 158px;
@@ -94,7 +98,7 @@
 
 @media (max-width: 568px) {  // 568 - 480
   .benefits {
-    padding: 40px 0;
+    padding: 0 0 60px;
     &::before {
       bottom: 119px;
       width: 138px;
