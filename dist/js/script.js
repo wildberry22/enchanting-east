@@ -155,10 +155,6 @@ function adaptiveAnimate() {
     header();
   }
 
-  if (screenWidth <= 568) {
-    benefits();
-  }
-
   function header() {
     const header = document.querySelector('.header');
     header.querySelectorAll('.animate__delay-2s').forEach(item => {
@@ -171,22 +167,6 @@ function adaptiveAnimate() {
     header.querySelector('.animate__delay-2-7s').classList.remove('animate__delay-2-7s');
     header.querySelector('.animate__delay-3s').classList.add('animate__delay-2-2s');
     header.querySelector('.animate__delay-3s').classList.remove('animate__delay-3s');
-  }
-
-  function benefits() {
-    const benefits = document.querySelector('.benefits');
-    benefits.querySelectorAll('.benefits-list__item').forEach(item => {
-      item.classList.add('animate__fadeInLeft');
-      item.classList.remove('animate__fadeInUp');
-    });
-    benefits.querySelector('.benefits-list__item.animate__delay-0-7s').classList.add('animate__delay-0-5s');
-    benefits.querySelector('.benefits-list__item.animate__delay-0-7s').classList.remove('animate__delay-0-7s');
-    benefits.querySelector('.benefits-list__item.animate__delay-1s').classList.add('animate__delay-0-5s');
-    benefits.querySelector('.benefits-list__item.animate__delay-1s').classList.remove('animate__delay-1s');
-    benefits.querySelector('.benefits-list__item.animate__delay-1-3s').classList.add('animate__delay-0-5s');
-    benefits.querySelector('.benefits-list__item.animate__delay-1-3s').classList.remove('animate__delay-1-3s');
-    benefits.querySelector('.benefits-list__item.animate__delay-1-6s').classList.add('animate__delay-0-5s');
-    benefits.querySelector('.benefits-list__item.animate__delay-1-6s').classList.remove('animate__delay-1-6s');
   }
 }
 
@@ -342,7 +322,7 @@ function gallery(itemSelector) {
   imgEl.classList.add('gallery-img');
   items.forEach(item => {
     item.addEventListener('click', () => {
-      imgEl.src = item.getAttribute('src');
+      imgEl.src = item.getAttribute('src').replace(/img-small/gi, 'img-big');
       imgEl.alt = item.getAttribute('alt');
       Object(_overlay__WEBPACK_IMPORTED_MODULE_0__["activateOverlay"])(imgEl);
     });
@@ -668,15 +648,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _overlay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./overlay */ "./src/assets/js/modules/overlay.js");
 
 function videoPopup(src, openBtn) {
+  const screenWidth = window.screen.width;
   const openVideoBtn = document.querySelector(openBtn);
-  const wrap = document.createElement('div');
-  wrap.innerHTML = `
-  <iframe class="liner-video__popup" src="${src}" title="COSTA FIRENZE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  `;
-  openVideoBtn.addEventListener('click', () => {
-    Object(_overlay__WEBPACK_IMPORTED_MODULE_0__["activateOverlay"])(wrap);
-  });
-  Object(_overlay__WEBPACK_IMPORTED_MODULE_0__["closeOverlay"])(wrap);
+
+  if (screenWidth >= 568) {
+    const wrap = document.createElement('div');
+    wrap.innerHTML = `
+    <iframe class="liner-video__popup" src="${src}" title="COSTA FIRENZE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    `;
+    openVideoBtn.addEventListener('click', () => {
+      Object(_overlay__WEBPACK_IMPORTED_MODULE_0__["activateOverlay"])(wrap);
+    });
+    Object(_overlay__WEBPACK_IMPORTED_MODULE_0__["closeOverlay"])(wrap);
+  } else {
+    const link = document.createElement('a');
+    link.setAttribute('href', 'https://www.youtube.com/watch?v=85a0e62bP2E');
+    link.setAttribute('target', '_blank');
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    openVideoBtn.addEventListener('click', () => {
+      link.click();
+    });
+    document.body.removeChild(link);
+  }
 }
 
 /***/ })

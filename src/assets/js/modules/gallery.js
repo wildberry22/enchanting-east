@@ -8,7 +8,7 @@ export default function gallery(itemSelector) {
 
   items.forEach(item => {
     item.addEventListener('click', () => {
-      imgEl.src = item.getAttribute('src')
+      imgEl.src = item.getAttribute('src').replace(/img-small/gi, 'img-big')
       imgEl.alt = item.getAttribute('alt')
       activateOverlay(imgEl)
     })

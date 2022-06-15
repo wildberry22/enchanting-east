@@ -369,3 +369,10 @@
     max-width: initial;
   }
 }
+
+
+@media (max-height: 530px) {
+  .header-about {
+    display: none;
+  }
+}

@@ -5,7 +5,10 @@
 @media (max-width: 568px) {  // 568 - 480
   .modal {
     min-width: 300px;
-    min-height: 400px;
+    min-height: 420px;
+    .status {
+      max-width: 260px;
+    }
   }
   .modal__text {
     max-width: 260px;
