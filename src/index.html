@@ -40,10 +40,44 @@
   <meta property="twitter:title" content="Enchanting East | 7 days of travel">
   <meta property="twitter:description" content="Чарующий Восток за 7 дней путишествия с комфортом! Круизный пактный тур по ОАЭ!">
   <meta property="twitter:image" content="img/screen-show.jpg">
+
+  <!-- ========== Preloader Styles ========== -->
+  <style>
+    .preloader-bg {
+      position: fixed;
+      z-index: 99999;
+      background: #0061BF;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity .3s linear;
+      opacity: 1;
+    }
+    .preloader {
+      background: url('./img/preloader.svg') center center/cover no-repeat;
+      width: 250px;
+      height: 250px;
+    }
+
+    @media screen and (max-width: 480px) {
+      .preloader {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  </style>
+
   <!-- ========== Links ========== -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body style="overflow-y: hidden;">
+
+  <!-- ========== Preloader ========== -->
+  <div class="preloader-bg">
+    <div class="preloader"></div>
+  </div>
 
   <!-- ========== Section Header ========== -->
   <header class="header" id="header">
@@ -51,34 +85,34 @@
       <div class="header-wrapper">
 
         <ul class="header-about">
-          <li class="header-about__item item-1 animate__animated animate__fadeInRight animate__delay-2-4s">
+          <li class="header-about__item item-1 animate__animated animate__fadeInRight animate__delay-1-3s">
             <span>Русскоязычный сервис</span>
           </li>
-          <li class="header-about__item item-2 animate__animated animate__fadeInRight animate__delay-2-7s">
+          <li class="header-about__item item-2 animate__animated animate__fadeInRight animate__delay-1-5s">
             <span>Лайнер Costa Firenze </span>
           </li>
-          <li class="header-about__item item-3 animate__animated animate__fadeInRight animate__delay-3s">
+          <li class="header-about__item item-3 animate__animated animate__fadeInRight animate__delay-1-7s">
             <span>Включен перелет</span>
           </li>
         </ul>
 
         <div class="header-main">
-          <div class="header-main__date animate__animated animate__fadeIn animate__delay-2s">02.02.2022 - 02.02.2022</div>
+          <div class="header-main__date animate__animated animate__fadeIn animate__delay-1s">02.02.2022 - 02.02.2022</div>
 
-          <h1 class="header-main__title animate__animated animate__fadeInUp animate__delay-0-5s">Чарующий Восток <br> за 7 дней путишествия <br> с комфортом </h1>
-          <h3 class="header-main__subtitle animate__animated animate__fadeIn animate__delay-2s">Круизный пактный тур по ОАЭ</h3>
-          <a class="btn btn-main header-main__btn animate__animated animate__fadeIn animate__delay-2s" href="#route"><span>Маршрут</span></a>
-          <div class="header-main__price animate__animated animate__fadeIn animate__delay-2s">Стоимость от <span>25 999</span> грн</div>
+          <h1 class="header-main__title animate__animated animate__fadeInUp animate__delay-0-2s">Чарующий Восток <br> за 7 дней путишествия <br> с комфортом </h1>
+          <h3 class="header-main__subtitle animate__animated animate__fadeIn animate__delay-1s">Круизный пактный тур по ОАЭ</h3>
+          <a class="btn btn-main header-main__btn animate__animated animate__fadeIn animate__delay-1s" href="#route"><span>Маршрут</span></a>
+          <div class="header-main__price animate__animated animate__fadeIn animate__delay-1s">Стоимость от <span>25 999</span> грн</div>
         </div>
 
         <div class="menu-btn"><span></span><span></span><span></span></div>
 
         <div class="header-nav__wrapper">
-          <div class="header-nav__message animate__animated animate__fadeIn animate__delay-1-3s">
+          <div class="header-nav__message animate__animated animate__fadeIn animate__delay-0-6s">
             <span>Все продумали за Вас</span>
           </div>
 
-          <nav class="header-nav animate__animated animate__fadeIn animate__delay-2s">
+          <nav class="header-nav animate__animated animate__fadeIn animate__delay-1s">
             <div class="close-menu__btn"><span></span><span></span></div>
             <ul class="header-nav__list">
               <li class="header-nav__list-item">
@@ -103,7 +137,7 @@
           </nav>
         </div>
 
-        <ul class="header-social animate__animated animate__fadeIn animate__delay-2s">
+        <ul class="header-social animate__animated animate__fadeIn animate__delay-1s">
           <li class="header-social__item">
             <a class="header-social__link" href="#">
               <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -132,9 +166,9 @@
         <h2 class="title route__title animate__animated animate__fadeInLeft wow">маршрут</h2>
         <h3 class="subtitle route__subtitle animate__animated animate__fadeInLeft wow">вас ждет 5 городов в маршруте</h3>
 
-        <img class="route-map__img animate__animated animate__fadeIn animate__delay-1s wow" src="./img/route-section/map-img.jpg" alt="map">
+        <img class="route-map__img animate__animated animate__fadeIn animate__delay-0-2s wow" src="./img/route-section/map-img.jpg" alt="map">
         <div class="route-map__wrapper">
-          <div class="route-map js-scroll animate__animated animate__fadeIn animate__delay-1s wow">
+          <div class="route-map js-scroll animate__animated animate__fadeIn animate__delay-0-2s wow">
             <div class="route-map__dot dot-1">Dubai</div>
             <div class="route-map__dot dot-2">Abu Dhabi</div>
             <div class="route-map__dot dot-3">Doha</div>
@@ -142,7 +176,7 @@
             <div class="route-map__dot dot-5">Khalifa Bin Salman</div>
           </div>
 
-          <div class="route-map__descr animate__animated animate__fadeIn animate__delay-1s wow">
+          <div class="route-map__descr animate__animated animate__fadeIn animate__delay-0-2s wow">
             <div class="route-map__descr-names">ДУБАЙ / АБУ-ДАБИ / о. СИР-БАНИ-ЯС / ДАМАМ / ДОХА</div>
             <ul class="route-map__descr-list">
               <li class="route-map__descr-item item-1"><span>2 дня в Дубаи.</span></li>
@@ -152,7 +186,7 @@
           </div>
         </div>
 
-        <div class="route-info animate__animated animate__fadeIn animate__delay-1s wow">
+        <div class="route-info animate__animated animate__fadeIn animate__delay-0-2s wow">
           <div class="route-info__wrapper">
 
             <ul class="route-info__title-list">
@@ -549,7 +583,7 @@
         </div>
 
 
-        <div class="route-download animate__animated animate__fadeIn animate__delay-0-5s wow">
+        <div class="route-download animate__animated animate__fadeIn animate__delay-0-2s wow">
           <div class="route-download__text">
             Получите всю програму в формате PDF.
             <span>*Для скачивания введите Ваш номер телефона.</span>
@@ -575,25 +609,25 @@
         
         <div class="benefits-wrapper">
           <ul class="benefits-list">
-            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-0-7s wow">
+            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-0-2s wow">
               <div class="benefits-list__item-wrapper">
                 <h6 class="benefits-list__item-title">Вам не нужно беспокоится об авиабилетах</h6>
                 <div class="benefits-list__item-descr">Ми подобрали удобный перелет, подготовим билеты за Вас.</div>
               </div>
             </li>
-            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-1s wow">
+            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-0-4s wow">
               <div class="benefits-list__item-wrapper">
                 <h6 class="benefits-list__item-title">Вы не узнаете, что такое “морская болезнь”</h6>
                 <div class="benefits-list__item-descr">Лайнер  Costa Firenze  оснащен современными стабилизаторами качки.</div>
               </div>
             </li>
-            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-1-3s wow">
+            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-0-6s wow">
               <div class="benefits-list__item-wrapper">
                 <h6 class="benefits-list__item-title">Вам не обязательно знать английский</h6>
                 <div class="benefits-list__item-descr">На лайнере есть русскоязычный персонал, меню и программа для на русском.</div>
               </div>
             </li>
-            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-1-6s wow">
+            <li class="benefits-list__item animate__animated animate__fadeInUp animate__delay-0-8s wow">
               <div class="benefits-list__item-wrapper">
                 <h6 class="benefits-list__item-title">Множество развлечений на борту</h6>
                 <div class="benefits-list__item-descr">Развлекательные программы, басейны, джакузи, спортзал, множество рестораннов и прочее.</div>
@@ -614,7 +648,7 @@
         <div class="price-wrapper">
           <ul class="price-list">
 
-            <li class="price-list__item animate__animated animate__fadeIn animate__delay-0-7s wow">
+            <li class="price-list__item animate__animated animate__fadeIn animate__delay-0-2s wow">
               <div class="price-list__item-wrapper">
                 <h6 class="price-list__item-title">Внутрення каюта</h6>
                 <div class="price-list__item-descr">
@@ -640,7 +674,7 @@
               <button class="btn btn-blacktext price-list__item-btn" data-open-modal><span>Предбронь</span></button>
             </li>
 
-            <li class="price-list__item animate__animated animate__fadeIn animate__delay-1s wow">
+            <li class="price-list__item animate__animated animate__fadeIn animate__delay-0-4s wow">
               <div class="price-list__item-wrapper">
                 <h6 class="price-list__item-title">Каюта с окном</h6>
                 <div class="price-list__item-descr">
@@ -666,7 +700,7 @@
               <button class="btn btn-blacktext price-list__item-btn" data-open-modal><span>Предбронь</span></button>
             </li>
 
-            <li class="price-list__item animate__animated animate__fadeIn animate__delay-1-3s wow">
+            <li class="price-list__item animate__animated animate__fadeIn animate__delay-0-6s wow">
               <div class="price-list__item-wrapper">
                 <h6 class="price-list__item-title">Каюта с балконом</h6>
                 <div class="price-list__item-descr">
@@ -695,7 +729,7 @@
           </ul>
         </div>
 
-        <div class="price-extra animate__animated animate__fadeIn animate__delay-0-7s wow">
+        <div class="price-extra animate__animated animate__fadeIn animate__delay-0-4s wow">
           *Предбронь на сутки без предоплаты. Наш специалист свяжется с Вами, расскажет все детали и ответит на Ваши вопросы.
         </div>
       </div>
@@ -712,7 +746,7 @@
             <h3 class="include-subtitle subtitle animate__animated animate__fadeInLeft wow">В СТОИМОСТЬ ВКЛЮЧЕННО ВСЕ НЕОБХОДИМОЕ ДЛЯ КОМФОРТНОГО ОТДЫХА</h3>
 
             <div class="include-content">
-              <div class="include-content__item first animate__animated animate__fadeInRight animate__delay-0-7s wow">
+              <div class="include-content__item first animate__animated animate__fadeInRight animate__delay-0-2s wow">
                 <h6 class="include-content__title">В СТОИМОСТЬ ТУРА ВКЛЮЧЕНО</h6>
                 <ul class="include-content__list">
                   <li class="include-content__list-item">Авиаперелет (багаж влючен).</li>
@@ -736,7 +770,7 @@
                   <li class="include-content__list-item">Портовые сборы и налоги.</li>
                 </ul>
               </div>
-              <div class="include-content__item-wrap animate__animated animate__fadeInRight animate__delay-1s wow">
+              <div class="include-content__item-wrap animate__animated animate__fadeInRight animate__delay-0-4s wow">
                 <div class="include-content__item">
                   <h6 class="include-content__title">ДОПОЛНИТЕЛЬНО ОПЛАЧИВАЕТСЯ:</h6>
                   <ul class="include-content__list">
@@ -757,7 +791,7 @@
               </div>
             </div>
           </div>
-          <img class="include-wrapper__img animate__animated animate__fadeIn animate__delay-1-5s wow" src="./img/include-section/photo.jpg" alt="liner">
+          <img class="include-wrapper__img animate__animated animate__fadeIn animate__delay-0-6s wow" src="./img/include-section/photo.jpg" alt="liner">
         </div>
 
       </div>
@@ -772,14 +806,14 @@
 
         <div class="liner-info">
           <div class="liner-info__inner">
-            <img class="liner-info__img gallery-watch animate__animated animate__fadeIn animate__delay-0-7s wow" src="./img/img-small/liner-section/liner.jpg" alt="liner">
+            <img class="liner-info__img gallery-watch animate__animated animate__fadeIn animate__delay-0-2s wow" src="./img/img-small/liner-section/liner.jpg" alt="liner">
             <ul class="liner-info__list">
-              <li class="liner-info__list-item animate__animated animate__fadeInLeft animate__delay-1s wow">Год спуска на воду <span>2021</span></li>
-              <li class="liner-info__list-item animate__animated animate__fadeInLeft animate__delay-1-3s wow">Количество гостей <span>5682</span></li> 
-              <li class="liner-info__list-item animate__animated animate__fadeInLeft animate__delay-1-6s wow">Длина судна (м) <span>368</span></li> 
+              <li class="liner-info__list-item animate__animated animate__fadeInLeft animate__delay-0-4s wow">Год спуска на воду <span>2021</span></li>
+              <li class="liner-info__list-item animate__animated animate__fadeInLeft animate__delay-0-6s wow">Количество гостей <span>5682</span></li> 
+              <li class="liner-info__list-item animate__animated animate__fadeInLeft animate__delay-0-8s wow">Длина судна (м) <span>368</span></li> 
             </ul>
           </div>
-          <div class="liner-info__descr animate__animated animate__fadeIn animate__delay-2s wow">
+          <div class="liner-info__descr animate__animated animate__fadeIn animate__delay-1s wow">
             <div class="liner-info__descr-text">
               Получите новые впечатления в обстановке современного Ренессанса и окунитесь 
               в незабываемую атмосферу отдыха, включая:
@@ -792,7 +826,7 @@
           </div>
         </div>
 
-        <div class="liner-video animate__animated animate__fadeIn animate__delay-1s wow ">
+        <div class="liner-video animate__animated animate__fadeIn animate__delay-0-4s wow ">
           <img class="liner-video__img" src="./img/liner-section/liner-popup.jpg" alt="about liner">
           <button class="liner-video__btn"></button>
         </div>
@@ -800,13 +834,13 @@
         <div class="liner-peculiarities">
 
           <div class="liner-peculiarities__item">
-            <div class="liner-peculiarities__img-container animate__animated animate__fadeIn animate__delay-1s wow">
+            <div class="liner-peculiarities__img-container animate__animated animate__fadeIn animate__delay-0-4s wow">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-1.jpg" alt="image 1" loading="lazy">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-2.jpg" alt="image 2" loading="lazy">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-3.jpg" alt="image 3" loading="lazy">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-4.jpg" alt="image 4" loading="lazy">
             </div>
-            <div class="liner-peculiarities__descr animate__animated animate__fadeInRight animate__delay-0-5s wow">
+            <div class="liner-peculiarities__descr animate__animated animate__fadeInRight animate__delay-0-2s wow">
               <h4 class="liner-peculiarities__descr-title">Изысканный и гармоничный интерьер</h4>
               <div class="liner-peculiarities__descr-text">
                 <p>
@@ -817,13 +851,13 @@
           </div>
 
           <div class="liner-peculiarities__item">
-            <div class="liner-peculiarities__img-container animate__animated animate__fadeIn animate__delay-1s wow">
+            <div class="liner-peculiarities__img-container animate__animated animate__fadeIn animate__delay-0-4s wow">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-5.jpg" alt="image 5" loading="lazy">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-6.jpg" alt="image 6" loading="lazy">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-7.jpg" alt="image 7" loading="lazy">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-8.jpg" alt="image 8" loading="lazy">
             </div>
-            <div class="liner-peculiarities__descr animate__animated animate__fadeInLeft animate__delay-0-5s wow">
+            <div class="liner-peculiarities__descr animate__animated animate__fadeInLeft animate__delay-0-2s wow">
               <h4 class="liner-peculiarities__descr-title">Каюты в итальянском стиле с изящным оформлением</h4>
               <div class="liner-peculiarities__descr-text">
                 <p>
@@ -837,13 +871,13 @@
           </div>
           
           <div class="liner-peculiarities__item">
-            <div class="liner-peculiarities__img-container animate__animated animate__fadeIn animate__delay-1s wow">
+            <div class="liner-peculiarities__img-container animate__animated animate__fadeIn animate__delay-0-4s wow">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-9.jpg" alt="image 9" loading="lazy">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-10.jpg" alt="image 10" loading="lazy">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-11.jpg" alt="image 11" loading="lazy">
               <img class="liner-peculiarities__img gallery-watch" src="./img/img-small/liner-section/content/img-12.jpg" alt="image 12" loading="lazy">
             </div>
-            <div class="liner-peculiarities__descr animate__animated animate__fadeInRight animate__delay-0-5s wow">
+            <div class="liner-peculiarities__descr animate__animated animate__fadeInRight animate__delay-0-2s wow">
               <h4 class="liner-peculiarities__descr-title">Наслаждение не только для глаз, а и для желудка</h4>
               <div class="liner-peculiarities__descr-text">
                 <p>
@@ -858,7 +892,7 @@
 
         </div>
 
-        <button class="liner-btn btn btn-main btn animate__animated animate__fadeIn animate__delay-0-5s wow" data-open-modal><span>Забронировать тур</span></button>
+        <button class="liner-btn btn btn-main btn animate__animated animate__fadeIn animate__delay-0-2s wow" data-open-modal><span>Забронировать тур</span></button>
 
       </div>
     </section>
@@ -871,11 +905,11 @@
         <h3 class="coordinator-subtitle subtitle animate__animated animate__fadeInLeft wow">НАШ СПЕЦИАЛИСТ БУДЕТ СОПРОВОЖДАТЬ ВАС НА ВСЕХ ЭТАПАХ ТУРА</h3>
         
         <div class="coordinator-wrapper">
-          <div class="coordinator-img animate__animated animate__fadeInLeft animate__delay-0-7s wow">
+          <div class="coordinator-img animate__animated animate__fadeInLeft animate__delay-0-4s wow">
             <img src="./img/coordinator-section/photo.jpg" alt="photo">
           </div>
           <div class="coordinator-descr">
-            <div class="coordinator-descr__about animate__animated animate__fadeIn animate__delay-1s wow">
+            <div class="coordinator-descr__about animate__animated animate__fadeIn animate__delay-0-6s wow">
               <h6 class="coordinator-descr__about-name">Слободян Лариса Ивановна</h6>
               <div class="coordinator-descr__about-pos">Генеральный директор</div>
               <div class="coordinator-descr__about-text">
@@ -888,7 +922,7 @@
               </div>
             </div>
             
-            <ul class="coordinator-descr__numbers animate__animated animate__fadeIn animate__delay-1s wow">
+            <ul class="coordinator-descr__numbers animate__animated animate__fadeIn animate__delay-0-6s wow">
               <li class="coordinator-descr__numbers-item">
                 <div class="coordinator-descr__numbers-num">15</div>
                 <div class="coordinator-descr__numbers-numbg">15</div>
@@ -920,7 +954,7 @@
         <div class="testimonials-wrapper">
           <ul class="testimonials-list">
 
-            <li class="testimonials-list__item animate__animated animate__fadeIn animate__delay-0-7s wow">
+            <li class="testimonials-list__item animate__animated animate__fadeIn animate__delay-0-2s wow">
               <div class="testimonials-list__item-top">
                 <div class="testimonials-list__item-photo">
                   <img src="./img/testimonials-section/people/1.jpg" alt="person 1">
@@ -942,7 +976,7 @@
               </div>
             </li>
 
-            <li class="testimonials-list__item animate__animated animate__fadeIn animate__delay-1s wow">
+            <li class="testimonials-list__item animate__animated animate__fadeIn animate__delay-0-4s wow">
               <div class="testimonials-list__item-top">
                 <div class="testimonials-list__item-photo">
                   <img src="./img/testimonials-section/people/2.jpg" alt="person 2">
@@ -961,7 +995,7 @@
               </div>
             </li>
 
-            <li class="testimonials-list__item animate__animated animate__fadeIn animate__delay-1-3s wow">
+            <li class="testimonials-list__item animate__animated animate__fadeIn animate__delay-0-6s wow">
               <div class="testimonials-list__item-top">
                 <div class="testimonials-list__item-photo">
                   <img src="./img/testimonials-section/people/3.jpg" alt="person 3">
@@ -985,7 +1019,7 @@
 
           </ul>
 
-          <div class="testimonials-book animate__animated animate__fadeIn animate__delay-0-5s wow">
+          <div class="testimonials-book animate__animated animate__fadeIn animate__delay-0-4s wow">
             <div class="testimonials-book__text">Забронируйте тур сейчас и получите яркие воспоминания.</div>
             <button class="testimonials-book__btn btn btn-main" data-open-modal><span>Забронировать тур</span></button>
           </div>

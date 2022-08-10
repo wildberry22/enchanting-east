@@ -1,13 +1,19 @@
+import preloader from './modules/preloader.js';
 import animateWithScroll from "./modules/animateWithScroll.js";
 import tabs from "./modules/tabs.js";
 import gallery from "./modules/gallery.js";
 import mask from "./modules/mask.js";
-import downloadFile from './modules/downloadFile.js'
+import downloadFile from './modules/downloadFile.js';
 import videoPopup from "./modules/videoPopup.js";
 import modal from "./modules/modal.js";
 import toTop from "./modules/toTop.js";
 import adaptiveAnimate from "./modules/adaptiveAnimate.js";
 import mobileNav from "./modules/mobileNav.js";
+
+
+// script for preloader
+window.addEventListener('load', preloader)
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // scroll animations for animate.css
